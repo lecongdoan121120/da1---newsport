@@ -20,4 +20,7 @@ switch ($action) {
   case "product":
     $productcontroller->product();
     break;
+
 }    
+?>
+<h1>hello </h1>

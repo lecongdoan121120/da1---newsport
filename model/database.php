@@ -1,5 +1,5 @@
 <?php
-
+// Trang kết nối database
 function connectDB()
 {
     $servername = "localhost";

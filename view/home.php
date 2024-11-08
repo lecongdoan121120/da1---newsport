@@ -1,6 +1,7 @@
+   <!-- TRANG CHỦ  -->
+    
     <!DOCTYPE html>
     <html lang="en">
-
     <head>
         <meta charset="UTF-8">
         <meta name="viewport" content="width=device-width, initial-scale=1.0">
@@ -22,7 +23,7 @@
                 <a class="btn btn-secondary dropdown-toggle" href="" role="button" id="dropdownMenuLink" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
                     Dropdown link
                 </a>
-
+                 
                 <div class="dropdown-menu" aria-labelledby="dropdownMenuLink">
                     <?php foreach ($category as $categoryy) {
                     ?> <a class="dropdown-item" href="index.php?action=product-category&id=<?php echo $categoryy['id'] ?>">

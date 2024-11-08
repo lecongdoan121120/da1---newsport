@@ -1,3 +1,4 @@
+<!-- TRANG INDEX DÙNG ĐỂ THAO TÁC  -->
 <?php
 session_start();
 include "./controller/ProductController.php";
@@ -23,4 +24,3 @@ switch ($action) {
 
 }    
 ?>
-<h1>hello </h1>

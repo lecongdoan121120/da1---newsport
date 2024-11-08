@@ -17,7 +17,7 @@ switch ($action) {
     $id = $_GET['id'];
     $productcontroller->productCategory($id);
     break;
-    case "product":
-      $productcontroller->product();
-}
-
+  case "product":
+    $productcontroller->product();
+    break;
+}    

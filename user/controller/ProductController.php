@@ -1,6 +1,5 @@
 <?php
 include 'model/ProductModel.php';
-
 class ProductController
 {
     public $productmodel;

@@ -1,5 +1,5 @@
 <?php
-include 'model/database.php';
+require_once "../config/database.php"; 
 class ProductModel
 {
   public $conn;

@@ -19,7 +19,7 @@
         <div class="row mb menu">
             <ul>
                 <li><a href="?action=home">Trang chủ</a></li>
-                <li><a href="?action=category">Loại hàng</a></li>
+                <li><a href="?action=addCategory">Loại hàng</a></li>
                 <li><a href="?action=hanghoa">Hàng hoá</a></li>
                 <li><a href="?action=khachhang">Khách hàng</a></li>
                 <li><a href="?action=binhluan">Bình luận</a></li>

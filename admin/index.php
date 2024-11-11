@@ -9,6 +9,11 @@
         case 'home' :
         $category->home();
         break;
-    }  
+
+        case 'addCategory':
+            $category->addCategory();
+            break;
+       
+    }
 
 

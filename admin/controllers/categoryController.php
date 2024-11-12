@@ -1,5 +1,5 @@
 <?php
-include '/../model/categoryModel.php';
+include './model/categoryModel.php';
 
 
 

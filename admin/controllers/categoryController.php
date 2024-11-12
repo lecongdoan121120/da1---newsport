@@ -1,5 +1,5 @@
 <?php
-include(__DIR__ . '/../model/categoryModel.php');
+include '/../model/categoryModel.php';
 
 
 
@@ -10,7 +10,7 @@ class categoryController
     function __construct()
     {
         $this->categorymodel = new categorytModel();
-    }
+}
 
 
     function home()

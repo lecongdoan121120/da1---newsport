@@ -4,12 +4,25 @@ session_start();
 include "./controller/ProductController.php";
 $action = $_GET['action'] ?? 'home';
 $productcontroller = new ProductController;
+switch ($action) {
+  case 'home':
+    $productcontroller->showAll();
+    break;
 
-match ($action) {
-  'home' => $productcontroller->showAll(),
-  'product-detail' => $productcontroller->productDetail($_GET['id'], $_GET['category_id']),
-  'product-category' => $productcontroller->productCategory($_GET['id']),
-  'product' => $productcontroller->product(),
-  default => throw new Exception("Action not recognized")
-};
+  case 'product-detail':
+    $productcontroller->productDetail($_GET['id'], $_GET['category_id']);
+    break;
+
+  case 'product-category':
+    $productcontroller->productCategory($_GET['id']);
+    break;
+
+  case 'product':
+    $productcontroller->product();
+    break;
+
+  default:
+    throw new InvalidArgumentException("Action '$action' not recognized.");
+}
+
 ?>

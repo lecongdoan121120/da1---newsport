@@ -8,7 +8,7 @@
     switch($action){
         case 'home' :
         $category->home();
-        break;
+        break;  
 
         case 'addCategory':
             $category->addCategory();

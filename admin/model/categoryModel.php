@@ -11,15 +11,11 @@ class categorytModel
   }
   function addCategory($name)
   {
-    // Sử dụng prepare() để chuẩn bị câu lệnh SQL an toàn hơn
-    $sql = "INSERT INTO `category`(`name`) VALUES (:name)";
+    // Prepare SQL statement with a placeholder for 'name'
+    $sql = "INSERT INTO category (name) VALUES (:name)";
     $stmt = $this->conn->prepare($sql);
-
-    // Gán giá trị cho placeholder `:name`
-    $stmt->bindParam(':name', $name);
-
-    // Thực thi truy vấn và trả về kết quả
-    return $stmt->execute();
+    // Execute the query by passing the 'name' parameter
+    $stmt->execute(['name' => $name]);
   }
 
 

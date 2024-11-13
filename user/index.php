@@ -21,8 +21,6 @@ switch ($action) {
     $productcontroller->product();
     break;
 
-  default:
-    throw new InvalidArgumentException("Action '$action' not recognized.");
-}
+  }
 
 ?>

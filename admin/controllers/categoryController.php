@@ -1,8 +1,6 @@
 <?php
 include './model/categoryModel.php';
 
-
-
 class categoryController
 {
     public $categorymodel;
@@ -10,14 +8,14 @@ class categoryController
     function __construct()
     {
         $this->categorymodel = new categorytModel();
-}
+    }
 
 
     function home()
     {
-        include "./view/home.php";
+        include "./view/home.php";                      
     }
-     function addCategory()
+    function addCategory()
     {
         if (isset($_POST['themdanhmuc']) && $_POST['themdanhmuc']) {
             $name = $_POST['name'];
@@ -30,5 +28,4 @@ class categoryController
         }
         include './view/add-category.php';
     }
-
 }

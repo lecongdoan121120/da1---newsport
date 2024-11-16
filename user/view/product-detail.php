@@ -105,61 +105,56 @@
                                 </div>
                             </div>
                         </div>
-                        <div class="list-productRelated clearfix">
-                            <div class="heading-title text-center">
-                                <h2>Sản phẩm liên quan</h2>
-                            </div>
-                            <div class="container">
-                                <div class="row">
-                                    <div class="col-md-3 col-sm-6 col-xs-6 col-6">
+
+                        <div class="heading-title text-center">
+                            <h2>Sản phẩm liên quan</h2>
+                        </div>
+                        <div class="container" style="padding-bottom: 50px;">
+                            <div class="row">
+                                <?php foreach ($loadProductcategorys as $loadProductcategory) {
+                                    // Tính toán giá sau khi giảm
+                                    $discountedPrice = $loadProductcategory['price'] * (1 - $loadProductcategory['discount'] / 100);
+                                    $discountAmount = $loadProductcategory['price'] - $discountedPrice;
+                                ?>
+                                    <div class="col-md-3 col-sm-6 col-xs-6 mb-4">
                                         <div class="product-block">
-                                            <?php foreach ($loadProductcategorys as $loadProductcategory) {
-                                                // Tính toán giá sau khi giảm
-                                                $discountedPrice = $loadProductcategory['price'] * (1 - $loadProductcategory['discount'] / 100);
-                                                $discountAmount = $loadProductcategory['price'] - $discountedPrice;
-                                            ?>
-                                                <div class="col-md-3 col-sm-6 col-xs-6 mb-4">
-                                                    <div class="product-block">
-                                                        <div class="product-img position-relative overflow-hidden">
-                                                            <a href="index.php?action=product-detail&id=<?php echo $loadProductcategory['id']; ?>&category_id=<?php echo $loadProductcategory['category_id']; ?>" title="" class="img-resize d-block">
-                                                                <img src="" alt="" class="img-fluid primary-img">
-                                                            </a>
-                                                        </div>
-                                                        <div class="product-detail text-center mt-3">
-                                                            <h5 class="product-title">
-                                                                <a href="index.php?action=product-detail&id=<?php echo $loadProductcategory['id']; ?>&category_id=<?php echo $loadProductcategory['category_id']; ?>">
-                                                                    <?php echo $loadProductcategory['title']; ?>
-                                                                </a>
-                                                            </h5>
-                                                            <div class="price-discount">
-                                                                <?php if ($loadProductcategory['discount'] > 0) { ?>
-                                                                    <span class="original-price text-muted">
-                                                                        <?php echo number_format($loadProductcategory['price'], 0, ',', '.'); ?>₫
-                                                                    </span>
-                                                                    <span class="discount-percent text-danger ms-1">-<?php echo $loadProductcategory['discount']; ?>%</span>
-                                                                    <br>
-                                                                    <span class="discounted-price d-block">
-                                                                        <?php echo number_format($discountedPrice, 0, ',', '.'); ?>₫
-                                                                    </span>
-                                                                    <span class="discount-amount text-success d-block">
-                                                                        Giảm <?php echo number_format($discountAmount, 0, ',', '.'); ?>₫
-                                                                    </span>
-                                                                <?php } else { ?>
-                                                                    <span class="discounted-price d-block">
-                                                                        <?php echo number_format($loadProductcategory['price'], 0, ',', '.'); ?>₫
-                                                                    </span>
-                                                                <?php } ?>
-                                                            </div>
-                                                        </div>
-                                                    </div>
+                                            <div class="product-img position-relative overflow-hidden">
+                                                <a href="index.php?action=product-detail&id=<?php echo $loadProductcategory['id']; ?>&category_id=<?php echo $loadProductcategory['category_id']; ?>" title="" class="img-resize d-block">
+                                                    <img src="" alt="" class="img-fluid primary-img">
+                                                </a>
+                                            </div>
+                                            <div class="product-detail text-center mt-3">
+                                                <h5 class="product-title">
+                                                    <a href="index.php?action=product-detail&id=<?php echo $loadProductcategory['id']; ?>&category_id=<?php echo $loadProductcategory['category_id']; ?>">
+                                                        <?php echo $loadProductcategory['title']; ?>
+                                                    </a>
+                                                </h5>
+                                                <div class="price-discount">
+                                                    <?php if ($loadProductcategory['discount'] > 0) { ?>
+                                                        <span class="original-price text-muted">
+                                                            <?php echo number_format($loadProductcategory['price'], 0, ',', '.'); ?>₫
+                                                        </span>
+                                                        <span class="discount-percent text-danger ms-1">-<?php echo $loadProductcategory['discount']; ?>%</span>
+                                                        <br>
+                                                        <span class="discounted-price d-block">
+                                                            <?php echo number_format($discountedPrice, 0, ',', '.'); ?>₫
+                                                        </span>
+                                                        <span class="discount-amount text-success d-block">
+                                                            Giảm <?php echo number_format($discountAmount, 0, ',', '.'); ?>₫
+                                                        </span>
+                                                    <?php } else { ?>
+                                                        <span class="discounted-price d-block">
+                                                            <?php echo number_format($loadProductcategory['price'], 0, ',', '.'); ?>₫
+                                                        </span>
+                                                    <?php } ?>
                                                 </div>
-                                            <?php } ?>
+                                            </div>
                                         </div>
                                     </div>
-
-                                </div>
+                                <?php } ?>
                             </div>
                         </div>
+
                     </div>
                 </div>
             </div>

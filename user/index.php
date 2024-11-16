@@ -22,7 +22,8 @@ switch ($action) {
     // Gọi hàm product với từ khóa tìm kiếm
     $productcontroller->search();
     break;
-
+  case 'product' :
+    $productcontroller->product();
 }
 
 ?>

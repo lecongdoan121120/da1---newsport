@@ -1,60 +1,62 @@
-    <!-- TRANG SẢN PHẨM THEO DANH MỤC -->
-    <!DOCTYPE html>
-    <html lang="en">
-    <head>
-        <meta charset="UTF-8">
-        <meta name="viewport" content="width=device-width, initial-scale=1.0">
-        <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.2/css/all.min.css" />
-        <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap@4.0.0/dist/css/bootstrap.min.css" integrity="sha384-Gn5384xqQ1aoWXA+058RXPxPg6fy4IWvTNh0E263XmFcJlSAwiGgFAW/dAiS6JXm" crossorigin="anonymous">
-        <script src="https://code.jquery.com/jquery-3.2.1.slim.min.js" integrity="sha384-KJ3o2DKtIkvYIK3UENzmM7KCkRr/rE9/Qpg6aAZGJwFDMVNA/GpGFF93hXpG5KkN" crossorigin="anonymous"></script>
-        <script src="https://cdn.jsdelivr.net/npm/popper.js@1.12.9/dist/umd/popper.min.js" integrity="sha384-ApNbgh9B+Y1QKtv3Rn7W3mgPxhU9K/ScQsAP7hUibX39j7fakFPskvXusvfa0b4Q" crossorigin="anonymous"></script>
-        <script src="https://cdn.jsdelivr.net/npm/bootstrap@4.0.0/dist/js/bootstrap.min.js" integrity="sha384-JZR6Spejh4U02d8jOt6vLEHfe/JQGiRRSQQxSfFWpi1MquVdAyjUar5+76PVCmYl" crossorigin="anonymous"></script>
-        <title>Document</title>
-    </head>
-
-    <body>
-        <header>
-            <div class="logo" style="display: flex;gap : 100px">
-                <h1>NewSport</h1>
-
-            </div>
-            <div class="dropdown show">
-                <a class="btn btn-secondary dropdown-toggle" href="#" role="button" id="dropdownMenuLink" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
-                    Dropdown link
-                </a>
-
-                <div class="dropdown-menu" aria-labelledby="dropdownMenuLink">
-                    <?php foreach ($category as $categoryy) {
-                    ?> <a class="dropdown-item" href="index.php?action=product-category&id=<?php echo $categoryy['id'] ?>">
-                            <?php echo $categoryy['name'] ?>
-                        </a>
-                    <?php      }
-                    ?>
-
-                </div>
-            </div>
-            <nav>
-                <ul>
-                    <li>
-                        <a href="http://">Trang chủ</a>
-                        <a href="http://">Giới thiệu</a>
-                        <a href="http://">Liên hệ</a>
-                        <a href="index.php?action=product">Sản phẩm</a>
-                    </li>
-                </ul>
-            </nav>
-            <div class="action">
-                <i class="fa-solid fa-magnifying-glass"></i>
-                <i class="fa-solid fa-user"></i>
-                <i class="fa-solid fa-bag-shopping"></i>
-            </div>
-            <main>
-                <?php foreach ($productcategory as $productcategorys) { ?>
-                    <a href="index.php?action=product-detail&id=<?php echo $productcategorys['id']; ?>&category_id=<?php echo $productcategorys['category_id']; ?>">
-                        <p><?php echo $productcategorys['title']; ?></p>
-                    </a>
-                <?php } ?>
-            </main>
-    </body>
-
-    </html>
+   <!--Product-->
+   <section>
+       <div class="content">
+           <div class="container">
+               <div class="hot_sp">
+                   <h2 style="text-align:center;">
+                       <a style="font-size: 28px;color: black;text-decoration: none" href="">Sản phẩm mới</a>
+                   </h2>
+                   <div class="view-all" style="text-align:center;">
+                       <a style="color: black;text-decoration: none" href="">Xem thêm</a>
+                   </div>
+               </div>
+           </div>
+           <!--Product-->
+       </div>
+       <div class="container" style="padding-bottom: 50px;">
+           <div class="row">
+               <?php foreach ($productcategory as $productcategorys) {
+                    // Tính toán giá sau khi giảm
+                    $discountedPrice = $productcategorys['price'] * (1 - $productcategorys['discount'] / 100);
+                    $discountAmount = $productcategorys['price'] - $discountedPrice;
+                ?>
+                   <div class="col-md-3 col-sm-6 col-xs-6 mb-4">
+                       <div class="product-block">
+                           <div class="product-img position-relative overflow-hidden">
+                               <a href="index.php?action=product-detail&id=<?php echo $productcategorys['id']; ?>&category_id=<?php echo $productcategorys['category_id']; ?>" title="" class="img-resize d-block">
+                                   <img src="" alt="" class="img-fluid primary-img">
+                               </a>
+                           </div>
+                           <div class="product-detail text-center mt-3">
+                               <h5 class="product-title">
+                                   <a href="index.php?action=product-detail&id=<?php echo $productcategorys['id']; ?>&category_id=<?php echo $productcategorys['category_id']; ?>">
+                                       <?php echo $productcategorys['title']; ?>
+                                   </a>
+                               </h5>
+                               <div class="price-discount">
+                                   <?php if ($productcategorys['discount'] > 0) { ?>
+                                       <span class="original-price text-muted">
+                                           <?php echo number_format($productcategorys['price'], 0, ',', '.'); ?>₫
+                                       </span>
+                                       <span class="discount-percent text-danger ms-1">-<?php echo $productcategorys['discount']; ?>%</span>
+                                       <br>
+                                       <span class="discounted-price d-block">
+                                           <?php echo number_format($discountedPrice, 0, ',', '.'); ?>₫
+                                       </span>
+                                       <span class="discount-amount text-success d-block">
+                                           Giảm <?php echo number_format($discountAmount, 0, ',', '.'); ?>₫
+                                       </span>
+                                   <?php } else { ?>
+                                       <span class="discounted-price d-block">
+                                           <?php echo number_format($productcategorys['price'], 0, ',', '.'); ?>₫
+                                       </span>
+                                   <?php } ?>
+                               </div>
+                           </div>
+                       </div>
+                   </div>
+               <?php } ?>
+           </div>
+       </div>
+   </section>
+   <!--Product-->

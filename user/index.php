@@ -26,6 +26,7 @@ switch ($action) {
     break;
   case 'product' :
     $productcontroller->product();
+<<<<<<< HEAD
 
  case 'addToCart':
             $cartcontroller->addToCart();
@@ -33,6 +34,9 @@ switch ($action) {
         case 'viewCart':
             $cartcontroller->viewCart();
             break;
+=======
+}
+>>>>>>> 74aa2aa45f284ae931a70af62443505e20d489c6
 
 
 

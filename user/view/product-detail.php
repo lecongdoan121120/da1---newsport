@@ -83,6 +83,7 @@
 
                                         <div class="wrap-addcart clearfix">
                                             <div class="row-flex">
+<<<<<<< HEAD
                                                 <form action="index.php?action=addToCart" method="POST">
                                                     <input type="hidden" name="id" value="<?php echo $products['id'] ?>">
                                                     <input type="hidden" name="title" value="<?php echo $products['title'] ?>">
@@ -91,6 +92,13 @@
                                                     <input type="number" name="quantity" value="1" min="1" required>
                                                     <button type="submit">Thêm vào giỏ hàng</button>
                                                 </form>
+=======
+                                                <button type="button" class="button btn-addtocart addtocart-modal">Thêm
+                                                    vào giỏ hàng</button>
+                                                <button type="button" class="buy-now button" style="display: block;">Mua
+                                                    ngay</button>
+
+>>>>>>> 74aa2aa45f284ae931a70af62443505e20d489c6
                                             </div>
 
                                         </div>

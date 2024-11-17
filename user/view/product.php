@@ -1,75 +1,90 @@
  <!-- TRANG SẢN PHẨM -->
-<!DOCTYPE html>
-    <html lang="en">
-    <head>
-        <meta charset="UTF-8">
-        <meta name="viewport" content="width=device-width, initial-scale=1.0">
-        <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.2/css/all.min.css" />
-        <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap@4.0.0/dist/css/bootstrap.min.css" integrity="sha384-Gn5384xqQ1aoWXA+058RXPxPg6fy4IWvTNh0E263XmFcJlSAwiGgFAW/dAiS6JXm" crossorigin="anonymous">
-        <script src="https://code.jquery.com/jquery-3.2.1.slim.min.js" integrity="sha384-KJ3o2DKtIkvYIK3UENzmM7KCkRr/rE9/Qpg6aAZGJwFDMVNA/GpGFF93hXpG5KkN" crossorigin="anonymous"></script>
-        <script src="https://cdn.jsdelivr.net/npm/popper.js@1.12.9/dist/umd/popper.min.js" integrity="sha384-ApNbgh9B+Y1QKtv3Rn7W3mgPxhU9K/ScQsAP7hUibX39j7fakFPskvXusvfa0b4Q" crossorigin="anonymous"></script>
-        <script src="https://cdn.jsdelivr.net/npm/bootstrap@4.0.0/dist/js/bootstrap.min.js" integrity="sha384-JZR6Spejh4U02d8jOt6vLEHfe/JQGiRRSQQxSfFWpi1MquVdAyjUar5+76PVCmYl" crossorigin="anonymous"></script>
-        <title>Document</title>
-    </head>
+ <!DOCTYPE html>
+ <html lang="en">
 
-    <body>
-        <header>
-            <div class="logo" style="display: flex;gap : 100px">
-                <h1>NewSport</h1>
+ <head>
+     <title>Document</title>
+ </head>
 
-            </div>
-            <div class="dropdown show">
-                <a class="btn btn-secondary dropdown-toggle" href="" role="button" id="dropdownMenuLink" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
-                    Dropdown link
-                </a>
+ <body>
+     <div class="breadcrumb-shop" style="margin-right: 500px;">
+         <div class="container">
+             <div class="row">
+                 <div class="col-lg-12 col-md-12 col-sm-12 col-xs-12 pd5">
+                     <ol class="breadcrumb breadcrumb-arrows">
+                         <li>
+                             <a href="index.html">
+                                 <span>Trang chủ</span>
+                             </a>
+                         </li>
+                         <li>
+                             <a href="Product.html">
+                                 <span>Danh mục</span>
+                             </a>
+                         </li>
+                         <li>
+                             <span><span style="color: #777777">Tất cả sản phẩm</span></span>
+                         </li>
+                     </ol>
+                 </div>
+             </div>
+         </div>
+     </div>
+     <div class="container">
+         <div class="hot_sp" style="padding-bottom: 10px;">
+             <h2 style="text-align:center;padding-top: 10px">
+                 <a style="font-size: 28px;color: black;text-decoration: none" href="">Tất cả sản phẩm</a>
+             </h2>
+         </div>
+     </div>
+     <div class="container" style="padding-bottom: 50px;">
+         <div class="row">
+             <?php foreach ($product as $products) {
+                    // Tính toán giá sau khi giảm
+                    $discountedPrice = $products['price'] * (1 - $products['discount'] / 100);
+                    $discountAmount = $products['price'] - $discountedPrice;
+                ?>
+                 <div class="col-md-3 col-sm-6 col-xs-6 mb-4">
+                     <div class="product-block">
+                         <div class="product-img position-relative overflow-hidden">
+                             <a href="index.php?action=product-detail&id=<?php echo $products['id']; ?>&category_id=<?php echo $products['category_id']; ?>" title="" class="img-resize d-block">
+                                 <img src="" alt="" class="img-fluid primary-img">
+                             </a>
+                         </div>
+                         <div class="product-detail text-center mt-3">
+                             <h5 class="product-title">
+                                 <a href="index.php?action=product-detail&id=<?php echo $products['id']; ?>&category_id=<?php echo $products['category_id']; ?>">
+                                     <?php echo $products['title']; ?>
+                                 </a>
+                             </h5>
+                             <div class="price-discount">
+                                 <?php if ($products['discount'] > 0) { ?>
+                                     <span class="original-price text-muted">
+                                         <?php echo number_format($products['price'], 0, ',', '.'); ?>₫
+                                     </span>
+                                     <span class="discount-percent text-danger ms-1">-<?php echo $products['discount']; ?>%</span>
+                                     <br>
+                                     <span class="discounted-price d-block">
+                                         <?php echo number_format($discountedPrice, 0, ',', '.'); ?>₫
+                                     </span>
+                                     <span class="discount-amount text-success d-block">
+                                         Giảm <?php echo number_format($discountAmount, 0, ',', '.'); ?>₫
+                                     </span>
+                                 <?php } else { ?>
+                                     <span class="discounted-price d-block">
+                                         <?php echo number_format($products['price'], 0, ',', '.'); ?>₫
+                                     </span>
+                                 <?php } ?>
+                             </div>
+                         </div>
+                     </div>
+                 </div>
+             <?php } ?>
+         </div>
+     </div>
 
-                <div class="dropdown-menu" aria-labelledby="dropdownMenuLink">
-                    <?php foreach ($category as $categoryy) {
-                    ?> <a class="dropdown-item" href="index.php?action=product-category&id=<?php echo $categoryy['id'] ?>">
-                            <?php echo $categoryy['name'] ?>
-                        </a>
-                    <?php      }
-                    ?>
-
-                </div>
-            </div>
-            <nav>
-                <ul>
-                    <li>
-                        <a href="http://">Trang chủ</a>
-                        <a href="http://">Giới thiệu</a>
-                        <a href="http://">Liên hệ</a>
-                        <a href="http://">Sản phẩm</a>
-                    </li>
-                </ul>
-            </nav>
-            <div class="action">
-
-                <i class="fa-solid fa-user"></i>
-                <i class="fa-solid fa-bag-shopping"></i>
-            </div>
-            <main>
-                <h1>TẤT CẢ SẢN PHẢM</h1>
-                <section class="product">
-                    <?php
-                    foreach ($product as $products) {
-                    ?>
-                        <a href="index.php?action=product-detail&id=<?php echo $products['id']; ?>&category_id=<?php echo $products['category_id'] ?>">
-                            <p><?php echo $products['thumbnail'] ?></p>
-                            <p><?php echo $products['title'] ?></p>
-                            <p><?php echo $products['price'] ?></p>
-                            <p><?php echo $products['discount'] ?></p>
-                        </a>
-
-                    <?php
-                    }   ?>
 
 
+ </body>
 
-                </section>
-            </main>
-
-
-    </body>
-
-    </html>
+ </html>

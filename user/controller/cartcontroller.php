@@ -1,5 +1,5 @@
 <?php
-include 'model/cartmodel.php';
+require_once 'model/cartmodel.php';
 
 class CartController
 {

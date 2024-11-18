@@ -19,11 +19,13 @@
             </tr>
             <?php foreach ($cart as $id => $item): ?>
                 <tr>
-                    <td><?= htmlspecialchars($item['title']) ?></td> <!-- Hiển thị tên sản phẩm -->
-                    <td><?= number_format($item['price'], 0, ',', '.') ?>đ</td> <!-- Hiển thị giá sản phẩm -->
-                    <td><?= $item['quantity'] ?></td>
-                    <td><?= number_format($item['price'] * $item['quantity'], 0, ',', '.') ?>đ</td> <!-- Thành tiền -->
+                <tr>
+                    <td><?= htmlspecialchars($item['title'] ?? 'Không xác định') ?></td> <!-- Hiển thị tên sản phẩm -->
+                    <td><?= number_format((float)($item['price'] ?? 0), 0, ',', '.') ?>đ</td> <!-- Hiển thị giá sản phẩm -->
+                    <td><?= (int)($item['quantity'] ?? 0) ?></td> <!-- Hiển thị số lượng sản phẩm -->
+                    <td><?= number_format((float)($item['price'] ?? 0) * (int)($item['quantity'] ?? 0), 0, ',', '.') ?>đ</td> <!-- Thành tiền -->
                 </tr>
+
             <?php endforeach; ?>
         </table>
         <h2>Tổng tiền: <?= number_format($this->cartModel->getTotalPrice(), 0, ',', '.') ?>đ</h2> <!-- Hiển thị tổng tiền -->

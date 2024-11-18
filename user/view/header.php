@@ -131,7 +131,7 @@
                                         <td class="text-right" id="total-view-cart">4,800,000₫</td>
                                     </tr>
                                     <tr>
-                                        <td class="distance-td"><a href="" class="linktocart button dark">Xem giỏ hàng</a></td>
+                                        <td class="distance-td"><a href="index.php?action=viewCart" class="linktocart button dark">Xem giỏ hàng</a></td>
                                         <td><a href="" class="linktocheckout button dark">Thanh toán</a></td>
                                     </tr>
                                 </tbody>
@@ -145,7 +145,7 @@
             </div>
 
             <div class="icon-ol">
-                <a style="color: #272727" href="">
+                <a href="index.php?action=register" style="color: #272727" href="">
                     <i class="fas fa-user-alt"></i>
                 </a>
                 <a href="#" class="" uk-toggle="target: #offcanvas-flip">

@@ -1,6 +1,5 @@
 <!-- TRANG INDEX DÙNG ĐỂ THAO TÁC -->
 <!DOCTYPE html>
-
 <?php
 session_start();
 require_once "./controller/ProductController.php";

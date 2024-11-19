@@ -90,7 +90,7 @@ class ProductModel
   // Tìm kiếm sản phẩm theo từ khóa
   function searchProduct($keyword)
   {
-    $sql = "SELECT * FROM `product` WHERE title LIKE :keyword";
+    $sql = "SELECT * FROM `product` WHERE title  :keyword";
     $stmt = $this->conn->prepare($sql);
     $stmt->bindValue(':keyword', '%' . $keyword . '%', PDO::PARAM_STR);  // Gán từ khóa
     $stmt->execute();

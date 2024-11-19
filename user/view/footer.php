@@ -95,3 +95,13 @@
             </div>
         </div>
     </footer>
+    <script type="text/javascript" src="public/js/bootstrap.min.js"></script>
+    <script type="text/javascript" src="public/js/jquery.min.js"></script>
+    <script type="text/javascript" src="public/js/swiper-bundle.min.js"></script>
+    <script type="text/javascript" src="public/js/carousel.js"></script>
+    <script type="text/javascript" src="public/js/bootstrap-select.min.js"></script>
+    <script type="text/javascript" src="public/js/lazysize.min.js"></script>
+    <script type="text/javascript" src="public/js/count-down.js"></script>
+    <script type="text/javascript" src="public/js/wow.min.js"></script>
+    <script type="text/javascript" src="public/js/multiple-modal.js"></script>
+    <script type="text/javascript" src="public/js/main.js"></script>

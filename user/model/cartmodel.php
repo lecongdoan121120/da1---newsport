@@ -29,7 +29,9 @@ class cartmodel
             ];
         }
         $_SESSION['cart'] = $this->cart; // Cập nhật lại session
+   
     }
+
     function getcart()
     {
         return $this->cart;
@@ -44,6 +46,6 @@ class cartmodel
         }
         return $total;
         
-    }
+    } 
     
 }

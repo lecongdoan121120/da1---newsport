@@ -238,7 +238,81 @@ body {
   color: var(--main);
   background-color: var(--white);
 }
+#wrapper {
+  position: sticky;
+  /* Hoặc fixed nếu muốn cố định hoàn toàn */
+  top: 0;
+  /* Cố định ở trên cùng */
+  z-index: 1000;
+  /* Đảm bảo nằm trên các phần tử khác */
+  background-color: white;
+  /* Màu nền */
+  box-shadow: 0 2px 5px rgba(0, 0, 0, 0.1);
+  /* Thêm hiệu ứng đổ bóng */
+  width: 100%;
+  /* Chiếm toàn bộ chiều ngang */
+}
 
+.pagination {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  gap: 8px;
+  margin-top: 20px;
+  font-family: Arial, sans-serif;
+}
+
+.pagination .page {
+  display: inline-block;
+  padding: 8px 12px;
+  font-size: 14px;
+  font-weight: bold;
+  text-align: center;
+  text-decoration: none;
+  color: #333;
+  border: 1px solid #ddd;
+  border-radius: 4px;
+  transition: all 0.3s ease;
+}
+
+.pagination .page:hover {
+  background-color: #f4f4f4;
+  color: #000000;
+  border-color: #000000;
+}
+
+.pagination .page.active {
+  background-color: #000000;
+  color: #fff;
+  border-color: #000000;
+  cursor: default;
+}
+
+.pagination .next {
+  display: inline-block;
+  padding: 8px 12px;
+  font-size: 14px;
+  font-weight: bold;
+  text-align: center;
+  text-decoration: none;
+  color: #333;
+  border: 1px solid #ddd;
+  border-radius: 4px;
+  transition: all 0.3s ease;
+}
+
+.pagination .next:hover {
+  background-color: #ffffff;
+  color: #030000;
+  border-color: #000000;
+}
+
+.pagination .next.disabled {
+  color: #aaa;
+  border-color: #ddd;
+  cursor: not-allowed;
+  background-color: #f9f9f9;
+}
 img {
   max-width: 100%;
   height: auto;
@@ -9309,7 +9383,6 @@ header.header-bg {
   border-radius: 10px;
   overflow: hidden;
   z-index: 20;
-  aspect-ratio: 1/1.4;
 }
 .card-product .card-product-wrapper .sold-out {
   display: flex;

@@ -9,11 +9,17 @@
     <link rel="stylesheet" href="public/css/swiper-bundle.min.css">
     <link rel="stylesheet" href="public/css/animate.css">
     <link rel="stylesheet" type="text/css" href="public/css/styles.css" />
+    <link rel="stylesheet" href="public/css/bootstrap-select.min.css" />
+    <link rel="stylesheet" href="public/css/drift-basic.mincss" />
+    <link rel="stylesheet" href="public/css/image-compare-viewer.mincss" />
+    <link rel="stylesheet" href="public/css/photoswipemin.css" />
+    <link rel="stylesheet" href="public/css/swiper-bundle.min.css" />
+
     <title>Website</title>
     <!-- LINK -->
 </head>
 
-<body>
+<body class="preload-wrapper">
 
     <!-- preload -->
     <div class="preload preload-container">
@@ -76,6 +82,6 @@
             </div>
         </header>
     </div>
-
 </body>
-</html> 
+
+</html>

@@ -127,7 +127,7 @@
                                             </div>
                                             <div class="product-detail text-center mt-3">
                                                 <h5 class="product-title">
-                                                    <a href="index.php?action=product-detail&id=<?php echo $loadProductcategory['id']; ?>&category_id=<?php echo $loadProductcategory['category_id']; ?>">
+                                                    
                                                         <?php echo $loadProductcategory['title']; ?>
                                                     </a>
                                                 </h5>

@@ -1,5 +1,4 @@
 <!-- TRANG INDEX DÙNG ĐỂ THAO TÁC -->
-<!DOCTYPE html>
 <?php
 session_start();
 require_once "./controller/ProductController.php";
@@ -24,7 +23,7 @@ switch ($action) {
     break;
   case 'search':
     // Gọi hàm product với từ khóa tìm kiếm
-    $productcontroller->search();
+    $productcontroller->search();   
     break;
   case 'product':
     $productcontroller->product();
@@ -34,7 +33,7 @@ switch ($action) {
   case 'viewCart':
     $cartcontroller->viewCart();
     break;
-    case 'register':
-      $usercontroller->register();
+  case 'register':
+    $usercontroller->register();
 }
 ?>

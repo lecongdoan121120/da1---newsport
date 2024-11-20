@@ -12,19 +12,28 @@ class CartController
 
     // Thêm sản phẩm vào giỏ hàng
     public function addToCart()
-    {    
-        $id = ($_POST['id']);
-        $title = ($_POST['title']);
-        $price = ($_POST['price']);
-        $quantity = ($_POST['quantity']);
-        $this->cartModel->addToCart($id, $title, $price, $quantity);
-        header('Location: index.php?action=viewCart');
+    {
+        // unset($_SESSION['cart']);
+        if ($_SERVER['REQUEST_METHOD'] === 'POST') {
+            $id = ($_POST['id']);
+            $title = ($_POST['title']);
+            $price = ($_POST['price']);
+            $quantity = ($_POST['quantity']);
+            $this->cartModel->addToCart($id, $title, $price, $quantity);
+
+            $uri = $_SESSION['URI'];
+
+            header('Location:' . $uri);
+        }
     }
+
 
     // Hiển thị giỏ hàng
     public function viewCart()
     {
         $cart = $this->cartModel->getCart();
+        var_dump($cart);
+        echo "JJJJJJJJJJ";
         include 'view/cartview.php';
     }
 }

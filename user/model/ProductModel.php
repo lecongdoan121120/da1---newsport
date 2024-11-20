@@ -96,4 +96,22 @@ class ProductModel
     $stmt->execute();
     return $stmt->fetchAll(PDO::FETCH_ASSOC);  // Trả về kết quả tìm kiếm
   }
+  // Lấy danh sách sản phẩm với phân trang
+  public function getProducts($limit, $offset)
+  {
+    $query = "SELECT * FROM `product` LIMIT :limit OFFSET :offset";
+    $stmt = $this->conn->prepare($query);
+    $stmt->bindParam(':limit', $limit, PDO::PARAM_INT);
+    $stmt->bindParam(':offset', $offset, PDO::PARAM_INT);
+    $stmt->execute();
+    return $stmt->fetchAll(PDO::FETCH_ASSOC);
+  }
+
+  // Lấy tổng số sản phẩm
+  public function getTotalProducts()
+  {
+    $query = "SELECT COUNT(*) as total FROM `product`";
+    $stmt = $this->conn->query($query);
+    return $stmt->fetch(PDO::FETCH_ASSOC)['total'];
+  }
 }

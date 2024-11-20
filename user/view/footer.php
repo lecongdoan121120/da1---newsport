@@ -1,107 +1,171 @@
-    <footer class="main-footer">
-        <div class="container">
-            <div class="">
-                <div class="row">
-                    <div class="col-xs-12 col-sm-6 col-md-3">
-                        <div class="footer-col footer-block">
-                            <h4 class="footer-title">
-                                Giới thiệu
-                            </h4>
-                            <div class="footer-content">
-                                <p>New Sport trang mua sắm trực tuyến của thương hiệu giày, thời trang nam, nữ, phụ kiện, giúp bạn
-                                    tiếp
-                                    cận xu hướng thời trang mới nhất.</p>
-                                <div class="social-list">
-                                    <a href="#" class="fab fa-facebook"></a>
-                                    <a href="#" class="fab fa-google"></a>
-                                    <a href="#" class="fab fa-twitter"></a>
-                                    <a href="#" class="fab fa-youtube"></a>
-                                </div>
-                            </div>
-                        </div>
-                    </div>
-                    <div class="col-xs-12 col-sm-6 col-md-3">
-                        <div class="footer-col footer-link">
-                            <h4 class="footer-title">
-                                PHÁP LÝ &amp; CÂU HỎI
-                            </h4>
-                            <div class="footer-content toggle-footer">
-                                <ul>
-                                    <li class="item">
-                                        <a href="#" title="Tìm kiếm">Tìm kiếm</a>
-                                    </li>
-                                    <li class="item">
-                                        <a href="#" title="Giới thiệu">Giới thiệu</a>
-                                    </li>
-                                    <li class="item">
-                                        <a href="#" title="Chính sách đổi trả">Chính sách đổi trả</a>
-                                    </li>
-                                    <li class="item">
-                                        <a href="#" title="Chính sách bảo mật">Chính sách bảo mật</a>
-                                    </li>
-                                    <li class="item">
-                                        <a href="#" title="Điều khoản dịch vụ">Điều khoản dịch vụ</a>
-                                    </li>
-                                </ul>
-                            </div>
-                        </div>
-                    </div>
-                    <div class="col-xs-12 col-sm-6 col-md-3">
-                        <div class="footer-col footer-block">
-                            <h4 class="footer-title">
-                                Thông tin liên hệ
-                            </h4>
-                            <div class="footer-content toggle-footer">
-                                <ul>
-                                    <li><span>Địa chỉ:</span>Trịnh Văn Bô , Hà Nội , Việt Nam</li>
-                                    <li><span>Điện thoại:</span> +84 (098) 7847654</li>
-                                    <li><span>Fax:</span> +84 (098) 7847654</li>
-                                    <li><span>Mail:</span> contact@newsport.com</li>
-                                </ul>
-                            </div>
-                        </div>
-                    </div>
-                    <div class="col-xs-12 col-sm-6 col-md-3">
-                        <div class="footer-col footer-block">
-                            <h4 class="footer-title">
-                                FANPAGE
-                            </h4>
-                            <div class="footer-content">
-                                <div id="fb-root">
-                                    <div class="footer-static-content">
-                                        <div class="fb-page" data-href="https://www.facebook.com/AziWorld-Viet-Nam-908555669481794/"
-                                            data-tabs="timeline" data-width="" data-height="215" data-small-header="false"
-                                            data-adapt-container-width="true" data-hide-cover="false" data-show-facepile="true">
-                                            <blockquote cite="https://www.facebook.com/AziWorld-Viet-Nam-908555669481794/"
-                                                class="fb-xfbml-parse-ignore"><a
-                                                    href="https://www.facebook.com/AziWorld-Viet-Nam-908555669481794/">NewSport</a>
-                                            </blockquote>
-                                        </div>
-                                    </div>
-                                </div>
-                            </div>
-                        </div>
-                    </div>
-                </div>
-            </div>
-        </div>
-        <div class="main-footer--copyright">
-            <div class="container">
-                <hr>
-                <div class="main-footer--border" style="text-align:center;padding-bottom: 15px;">
-                    <p>Copyright © 2024 <a href="https://runner-inn.myharavan.com">NewSport</a>. <a target="_blank"
-                            href="https://www.facebook.com/henrynguyen202">Powered by HuniBlue</a></p>
-                </div>
-            </div>
-        </div>
-    </footer>
-    <script type="text/javascript" src="public/js/bootstrap.min.js"></script>
-    <script type="text/javascript" src="public/js/jquery.min.js"></script>
-    <script type="text/javascript" src="public/js/swiper-bundle.min.js"></script>
-    <script type="text/javascript" src="public/js/carousel.js"></script>
-    <script type="text/javascript" src="public/js/bootstrap-select.min.js"></script>
-    <script type="text/javascript" src="public/js/lazysize.min.js"></script>
-    <script type="text/javascript" src="public/js/count-down.js"></script>
-    <script type="text/javascript" src="public/js/wow.min.js"></script>
-    <script type="text/javascript" src="public/js/multiple-modal.js"></script>
-    <script type="text/javascript" src="public/js/main.js"></script>
+      <!-- Footer -->
+      <footer id="footer" class="footer background-gray md-pb-70">
+          <div class="footer-wrap">
+              <div class="footer-body">
+                  <div class="container">
+                      <div class="row">
+                          <div class="col-xl-3 col-md-6 col-12">
+                              <div class="footer-infor">
+                                  <div class="footer-logo">
+                                      <a href="index.html">
+                                          <img src="images/logo/logo.svg" alt="">
+                                      </a>
+                                  </div>
+                                  <ul>
+                                      <li>
+                                          <p>Address: 1234 Fashion Street, Suite 567, <br> New York, NY 10001</p>
+                                      </li>
+                                      <li>
+                                          <p>Email: <a href="#">info@fashionshop.com</a></p>
+                                      </li>
+                                      <li>
+                                          <p>Phone: <a href="#">(212) 555-1234</a></p>
+                                      </li>
+                                  </ul>
+                                  <a href="contact-1.html" class="tf-btn btn-line">Get direction<i class="icon icon-arrow1-top-left"></i></a>
+                                  <ul class="tf-social-icon d-flex gap-10">
+                                      <li><a href="#" class="box-icon w_34 round social-facebook social-line"><i class="icon fs-14 icon-fb"></i></a></li>
+                                      <li><a href="#" class="box-icon w_34 round social-twiter social-line"><i class="icon fs-12 icon-Icon-x"></i></a></li>
+                                      <li><a href="#" class="box-icon w_34 round social-instagram social-line"><i class="icon fs-14 icon-instagram"></i></a></li>
+                                      <li><a href="#" class="box-icon w_34 round social-tiktok social-line"><i class="icon fs-14 icon-tiktok"></i></a></li>
+                                      <li><a href="#" class="box-icon w_34 round social-pinterest social-line"><i class="icon fs-14 icon-pinterest-1"></i></a></li>
+                                  </ul>
+                              </div>
+                          </div>
+                          <div class="col-xl-3 col-md-6 col-12 footer-col-block">
+                              <div class="footer-heading footer-heading-desktop">
+                                  <h6>Help</h6>
+                              </div>
+                              <div class="footer-heading footer-heading-moblie">
+                                  <h6>Help</h6>
+                              </div>
+                              <ul class="footer-menu-list tf-collapse-content">
+                                  <li>
+                                      <a href="privacy-policy.html" class="footer-menu_item">Privacy Policy</a>
+                                  </li>
+                                  <li>
+                                      <a href="delivery-return.html" class="footer-menu_item"> Returns + Exchanges </a>
+                                  </li>
+                                  <li>
+                                      <a href="shipping-delivery.html" class="footer-menu_item">Shipping</a>
+                                  </li>
+                                  <li>
+                                      <a href="terms-conditions.html" class="footer-menu_item">Terms &amp; Conditions</a>
+                                  </li>
+                                  <li>
+                                      <a href="faq-1.html" class="footer-menu_item">FAQ’s</a>
+                                  </li>
+                                  <li>
+                                      <a href="compare.html" class="footer-menu_item">Compare</a>
+                                  </li>
+                                  <li>
+                                      <a href="wishlist.html" class="footer-menu_item">My Wishlist</a>
+                                  </li>
+                              </ul>
+                          </div>
+                          <div class="col-xl-3 col-md-6 col-12 footer-col-block">
+                              <div class="footer-heading footer-heading-desktop">
+                                  <h6>About us</h6>
+                              </div>
+                              <div class="footer-heading footer-heading-moblie">
+                                  <h6>About us</h6>
+                              </div>
+                              <ul class="footer-menu-list tf-collapse-content">
+                                  <li>
+                                      <a href="about-us.html" class="footer-menu_item">Our Story</a>
+                                  </li>
+                                  <li>
+                                      <a href="our-store.html" class="footer-menu_item">Visit Our Store</a>
+                                  </li>
+                                  <li>
+                                      <a href="contact-1.html" class="footer-menu_item">Contact Us</a>
+                                  </li>
+                                  <li>
+                                      <a href="login.html" class="footer-menu_item">Account</a>
+                                  </li>
+                              </ul>
+                          </div>
+                          <div class="col-xl-3 col-md-6 col-12">
+                              <div class="footer-newsletter footer-col-block">
+                                  <div class="footer-heading footer-heading-desktop">
+                                      <h6>Sign Up for Email</h6>
+                                  </div>
+                                  <div class="footer-heading footer-heading-moblie">
+                                      <h6>Sign Up for Email</h6>
+                                  </div>
+                                  <div class="tf-collapse-content">
+                                      <div class="footer-menu_item">Sign up to get first dibs on new arrivals, sales, exclusive content, events and more!</div>
+                                      <form class="form-newsletter" action="#" method="post">
+                                          <div>
+                                              <fieldset class="email">
+                                                  <input type="email" name="email-form" id="subscribe-email" placeholder="Enter your email...." tabindex="0" aria-required="true">
+                                              </fieldset>
+                                              <div class="button-submit">
+                                                  <button class="tf-btn btn-sm radius-3 btn-fill btn-icon animate-hover-btn" type="button">Subscribe<i class="icon icon-arrow1-top-left"></i></button>
+                                              </div>
+                                          </div>
+                                          <!-- <div id="subscribe-msg"></div> -->
+                                      </form>
+                                      <div class="tf-cur">
+                                          <div class="tf-currencies">
+                                              <select class="image-select center style-default type-currencies">
+                                                  <option data-thumbnail="images/country/fr.svg">EUR <span>€ | France</span></option>
+                                                  <option data-thumbnail="images/country/de.svg">EUR <span>€ | Germany</span></option>
+                                                  <option selected data-thumbnail="images/country/us.svg">USD <span>$ | United States</span></option>
+                                                  <option data-thumbnail="images/country/vn.svg">VND <span>₫ | Vietnam</span></option>
+                                              </select>
+                                          </div>
+                                          <div class="tf-languages">
+                                              <select class="image-select center style-default type-languages">
+                                                  <option>English</option>
+                                                  <option>العربية</option>
+                                                  <option>简体中文</option>
+                                                  <option>اردو</option>
+                                              </select>
+                                          </div>
+                                      </div>
+                                  </div>
+                              </div>
+                          </div>
+                      </div>
+                  </div>
+              </div>
+              <div class="footer-bottom">
+                  <div class="container">
+                      <div class="row">
+                          <div class="col-12">
+                              <div class="footer-bottom-wrap d-flex gap-20 flex-wrap justify-content-between align-items-center">
+                                  <div class="footer-menu_item">© 2024 Ecomus Store. All Rights Reserved</div>
+                                  <div class="tf-payment">
+                                      <img src="images/payments/visa.png" alt="">
+                                      <img src="images/payments/img-1.png" alt="">
+                                      <img src="images/payments/img-2.png" alt="">
+                                      <img src="images/payments/img-3.png" alt="">
+                                      <img src="images/payments/img-4.png" alt="">
+                                  </div>
+                              </div>
+                          </div>
+                      </div>
+                  </div>
+              </div>
+          </div>
+      </footer>
+      <!-- /Footer -->
+      <!-- gotop -->
+      <div class="progress-wrap">
+          <svg class="progress-circle svg-content" width="100%" height="100%" viewBox="-1 -1 102 102">
+              <path d="M50,1 a49,49 0 0,1 0,98 a49,49 0 0,1 0,-98" style="transition: stroke-dashoffset 10ms linear 0s; stroke-dasharray: 307.919, 307.919; stroke-dashoffset: 286.138;"></path>
+          </svg>
+      </div>
+      <!-- /gotop -->
+      <script type="text/javascript" src="public/js/bootstrap.min.js"></script>
+      <script type="text/javascript" src="public/js/zoom.js"></script>
+      <script type="text/javascript" src="public/js/wow.min.js"></script>
+      <script type="text/javascript" src="public/js/jquery.min.js"></script>
+      <script type="text/javascript" src="public/js/swiper-bundle.min.js"></script>
+      <script type="text/javascript" src="public/js/carousel.js"></script>
+      <script type="text/javascript" src="public/js/bootstrap-select.min.js"></script>
+      <script type="text/javascript" src="public/js/lazysize.min.js"></script>
+      <script type="text/javascript" src="public/js/count-down.js"></script>
+      <script type="text/javascript" src="public/js/multiple-modal.js"></script>
+      <script type="text/javascript" src="public/js/main.js"></script>

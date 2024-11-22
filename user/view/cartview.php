@@ -25,7 +25,6 @@
                     <td><?= (int)($item['quantity'] ?? 0) ?></td> <!-- Hiển thị số lượng sản phẩm -->
                     <td><?= number_format((float)($item['price'] ?? 0) * (int)($item['quantity'] ?? 0), 0, ',', '.') ?>đ</td> <!-- Thành tiền -->
                 </tr>
-
             <?php endforeach; ?>
         </table>
         <h2>Tổng tiền: <?= number_format($this->cartModel->getTotalPrice(), 0, ',', '.') ?>đ</h2> <!-- Hiển thị tổng tiền -->

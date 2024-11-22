@@ -70,12 +70,14 @@ class ProductController
             // Lấy từ khóa tìm kiếm từ POST
             $keyword = $_POST['keyword'];
             $searchproduct = $this->productmodel->searchProduct($keyword);
+          
         }
-
+        $category = $this->productmodel->getAllcategory();
 
         // Bao gồm các view cần thiết
         include 'view/header.php';
         include 'view/search.php';
         include 'view/footer.php';
     }
+    
 }

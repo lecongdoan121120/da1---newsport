@@ -1,5 +1,5 @@
 <?php
-require_once 'model/userModel.php';
+require_once 'model/usermodel.php';
 
 class userController
 {
@@ -27,14 +27,58 @@ class userController
             } else {
                 // Đăng ký thành công
                 if ($this->userModel->register($fullname, $email, $phone_number, $password)) {
-                    $success = "Đăng ký thành công!";          
+                    $success = "Đăng ký thành công!";
                 } else {
-                    $error = "Đã có lỗi xảy ra. Vui lòng thử lại!";
+                    $success = "Đăng ký thành công!";
                 }
             }
         }
 
         // Truyền biến lỗi hoặc thông báo thành công ra view
+        include "view/header.php";
         include "view/register.php";
+        include "view/footer.php";
+    }
+    public function login()
+    {
+
+        if ($_SERVER['REQUEST_METHOD'] === 'POST') {
+
+            $email = $_POST['email'];
+            $password = $_POST['password'];
+
+            // Lấy user từ database
+            $user = $this->userModel->getUserByEmail($email);
+
+
+            if ($user && $password === $user['password']) {
+
+
+                $_SESSION['user'] = [
+                    'id' => $user['id'],
+                    'email' => $user['email'],
+                    'name' => $user['name'],
+                    'role' => $user['role'],
+                    'password' => $user['password'],
+
+                ];
+            
+                header('Location:index.php');
+            } else {
+                // Sai email hoặc mật khẩu
+                $error = "Invalid email or password!";
+                include "view/login.php";
+            }
+        } else {
+            include "view/header.php";
+            include "view/login.php";
+            include "view/footer.php";
+        }
+    }
+    public function logout()
+    {
+        session_destroy();
+        header("Location: index.php ");
+        exit();
     }
 }

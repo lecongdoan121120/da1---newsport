@@ -8,21 +8,17 @@ $action = $_GET['action'] ?? 'home';
 $productcontroller = new ProductController;
 $cartcontroller = new CartController;
 $usercontroller = new usercontroller;
-
 switch ($action) {
   case 'home':
     $productcontroller->showAll();
-    break;
-
+    break;             
   case 'product-detail':
     $productcontroller->productDetail($_GET['id'], $_GET['category_id']);
     break;
-
   case 'product-category':
     $productcontroller->productCategory($_GET['id']);
     break;
   case 'search':
-    // Gọi hàm product với từ khóa tìm kiếm
     $productcontroller->search();   
     break;
   case 'product':
@@ -35,5 +31,12 @@ switch ($action) {
     break;
   case 'register':
     $usercontroller->register();
+    break;
+    case 'login':
+      $usercontroller->login();
+      break;
+  case 'logout':
+    $usercontroller->logout();
+    break;
 }
 ?>

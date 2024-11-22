@@ -15,6 +15,7 @@
     <link rel="stylesheet" href="public/css/photoswipemin.css" />
     <link rel="stylesheet" href="public/css/swiper-bundle.min.css" />
 
+
     <title>Website</title>
     <!-- LINK -->
 </head>
@@ -73,14 +74,64 @@
                     <div class="col-xl-5 col-md-4 col-3">
                         <ul class="nav-icon d-flex justify-content-end align-items-center gap-20">
                             <li class="nav-search"><a href="#canvasSearch" data-bs-toggle="offcanvas" aria-controls="offcanvasLeft" class="nav-icon-item"><i class="icon icon-search"></i></a></li>
-                            <li class="nav-account"><a href="#login" data-bs-toggle="modal" class="nav-icon-item"><i class="icon icon-account"></i></a></li>
-                            <li class="nav-wishlist"><a href="wishlist.html" class="nav-icon-item"><i class="icon icon-heart"></i><span class="count-box bg-yellow-9 text_black">0</span></a></li>
-                            <li class="nav-cart"><a href="#shoppingCart" data-bs-toggle="modal" class="nav-icon-item"><i class="icon icon-bag"></i><span class="count-box bg-yellow-9 text_black">0</span></a></li>
+                            <?php
+                       
+                            $role = isset($_SESSION['user']['role']) ? $_SESSION['user']['role'] : 1;
+                                echo '<pre>';
+                                print_r($_SESSION);
+                                echo '</pre>';
+                            ?>
+                            <div class="dropdown show">
+                                <?php if (isset($_SESSION['user'])): ?>
+                                    <a class="" href="#" role="button" id="dropdownMenuLink" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
+                                        <i class="icon icon-account"></i>
+                                    </a>
+                                    <div style="margin-right: 98px; margin-top:20px" class="dropdown-menu" aria-labelledby="dropdownMenuLink">
+                                        <a class="dropdown-item" href="?action=profile">Tài khoản</a>
+                                        <a class="dropdown-item" href="?action=logout">Đăng xuất</a>
+                                        <?php if ($role === 1): ?>
+                                            <a class="dropdown-item" href="?action=admin_dashboard">Quản trị viên</a>
+                                        <?php endif; ?>
+                                    </div>
+                                <?php else: ?>
+                                    <a class="" href="#" role="button" id="dropdownMenuLink" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
+                                        <i class="icon icon-account"></i>
+                                    </a>
+                                    <div style="margin-right: 98px; margin-top:20px" class="dropdown-menu" aria-labelledby="dropdownMenuLink">
+                                        <a class="dropdown-item" href="?action=login">Đăng nhập</a>
+                                        <a class="dropdown-item" href="?action=register">Đăng ký</a>
+                                    </div>
+                                <?php endif; ?>
+                            </div>
+
+                            <li class="nav-cart"><a href="?action=viewCart" class="nav-icon-item"><i class="icon icon-bag"></i></a>
+                            </li>
+
                         </ul>
                     </div>
                 </div>
             </div>
         </header>
+    </div>
+    <div class="offcanvas offcanvas-end canvas-search" id="canvasSearch">
+
+        <header class="tf-search-head">
+            <div class="title fw-5">
+                Tìm kiếm tại đây
+                <div class="close">
+                    <span class="icon-close icon-close-popup" data-bs-dismiss="offcanvas" aria-label="Close"></span>
+                </div>
+            </div>
+            <div class="tf-search-sticky">
+                <form action="?action=search" class="tf-mini-search-frm" method="post">
+                    <fieldset class="text">
+                        <input type="text" placeholder="Search" class="" name="keyword" tabindex="0" value="" aria-required="true" required="">
+                    </fieldset>
+                    <button class="" type="submit"><i class="icon-search"></i></button>
+                </form>
+            </div>
+        </header>
+
     </div>
 </body>
 

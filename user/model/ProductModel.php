@@ -90,12 +90,13 @@ class ProductModel
   // Tìm kiếm sản phẩm theo từ khóa
   function searchProduct($keyword)
   {
-    $sql = "SELECT * FROM `product` WHERE title  :keyword";
+    $sql = "SELECT * FROM product WHERE title LIKE :keyword"; // Không để thừa hoặc thiếu dấu nháy
     $stmt = $this->conn->prepare($sql);
-    $stmt->bindValue(':keyword', '%' . $keyword . '%', PDO::PARAM_STR);  // Gán từ khóa
-    $stmt->execute();
-    return $stmt->fetchAll(PDO::FETCH_ASSOC);  // Trả về kết quả tìm kiếm
+    $stmt->bindValue(':keyword', '%' . $keyword . '%', PDO::PARAM_STR); // Gắn tham số đúng
+    $stmt->execute(); // Thực thi câu lệnh
+    return $stmt->fetchAll(PDO::FETCH_ASSOC); // Trả về kết quả
   }
+
   // Lấy danh sách sản phẩm với phân trang
   public function getProducts($limit, $offset)
   {

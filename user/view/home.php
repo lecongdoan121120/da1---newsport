@@ -224,7 +224,7 @@
                 <?php
                 $maxProducts = 8; // Số lượng sản phẩm tối đa muốn hiển thị
                 $count = 0; // Bộ đếm sản phẩm
-                 foreach ($products as $product) {
+                foreach ($products as $product) {
                     $count++;
                     $discountedPrice = $product['price'] * (1 - $product['discount'] / 100);  ?>
 
@@ -233,21 +233,6 @@
                             <a href="index.php?action=product-detail&id=<?php echo $product['id']; ?>&category_id=<?php echo $product['category_id']; ?>">
                                 <img src="../upload/<?= $product['thumbnail'] ?>" alt="">
                             </a>
-                            <div class="list-product-btn absolute-2">
-                                <a href="#quick_add" data-bs-toggle="modal" class="box-icon bg_white quick-add tf-btn-loading">
-                                    <span class="icon icon-bag"></span>
-                                    <span class="tooltip">Quick Add</span>
-                                </a>
-                                <a href="javascript:void(0);" class="box-icon bg_white wishlist btn-icon-action">
-                                    <span class="icon icon-heart"></span>
-                                    <span class="tooltip">Add to Wishlist</span>
-                                    <span class="icon icon-delete"></span>
-                                </a>
-                                <a href="#quick_view" data-bs-toggle="modal" class="box-icon bg_white quickview tf-btn-loading">
-                                    <span class="icon icon-view"></span>
-                                    <span class="tooltip">Quick View</span>
-                                </a>
-                            </div>
                             <div>
                             </div>
                             <div class="on-sale-wrap text-end">
@@ -262,7 +247,7 @@
                             <div style="display: flex; gap:9px">
                                 <del class="price"><?php echo number_format($product['price'], 0, ',', '.'); ?>₫</del>
                                 <p style="color: red;" class="price">
-                                    <?php echo number_format($discountedPrice, 0, ',', '.'); ?>₫ 
+                                    <?php echo number_format($discountedPrice, 0, ',', '.'); ?>₫
                                 </p>
                             </div>
                         </div>
@@ -270,7 +255,8 @@
                 <?php
                     if ($count >= $maxProducts) {
                         break; // Dừng vòng lặp
-                    }  } ?>
+                    }
+                } ?>
 
 
             </div>

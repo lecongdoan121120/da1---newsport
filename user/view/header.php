@@ -75,11 +75,11 @@
                         <ul class="nav-icon d-flex justify-content-end align-items-center gap-20">
                             <li class="nav-search"><a href="#canvasSearch" data-bs-toggle="offcanvas" aria-controls="offcanvasLeft" class="nav-icon-item"><i class="icon icon-search"></i></a></li>
                             <?php
-                       
+
                             $role = isset($_SESSION['user']['role']) ? $_SESSION['user']['role'] : 1;
-                                echo '<pre>';
-                                print_r($_SESSION);
-                                echo '</pre>';
+                            echo '<pre>';
+                            print_r($_SESSION);
+                            echo '</pre>';
                             ?>
                             <div class="dropdown show">
                                 <?php if (isset($_SESSION['user'])): ?>
@@ -89,6 +89,7 @@
                                     <div style="margin-right: 98px; margin-top:20px" class="dropdown-menu" aria-labelledby="dropdownMenuLink">
                                         <a class="dropdown-item" href="?action=profile">Tài khoản</a>
                                         <a class="dropdown-item" href="?action=logout">Đăng xuất</a>
+                                        <a class="dropdown-item" href="?action=inforuser">Thông tin cá nhân</a>
                                         <?php if ($role === 1): ?>
                                             <a class="dropdown-item" href="?action=admin_dashboard">Quản trị viên</a>
                                         <?php endif; ?>

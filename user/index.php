@@ -11,7 +11,7 @@ $usercontroller = new usercontroller;
 switch ($action) {
   case 'home':
     $productcontroller->showAll();
-    break;             
+    break;
   case 'product-detail':
     $productcontroller->productDetail($_GET['id'], $_GET['category_id']);
     break;
@@ -19,7 +19,7 @@ switch ($action) {
     $productcontroller->productCategory($_GET['id']);
     break;
   case 'search':
-    $productcontroller->search();   
+    $productcontroller->search();
     break;
   case 'product':
     $productcontroller->product();
@@ -32,11 +32,17 @@ switch ($action) {
   case 'register':
     $usercontroller->register();
     break;
-    case 'login':
-      $usercontroller->login();
-      break;
+  case 'login':
+    $usercontroller->login();
+    break;
   case 'logout':
     $usercontroller->logout();
     break;
+    case 'inforuser' :
+      $usercontroller->inforuser();
+      break; 
+      case 'comment' :
+     $productcontroller->addComment();
+     break;
 }
 ?>

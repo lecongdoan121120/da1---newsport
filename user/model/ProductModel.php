@@ -115,4 +115,33 @@ class ProductModel
     $stmt = $this->conn->query($query);
     return $stmt->fetch(PDO::FETCH_ASSOC)['total'];
   }
+
+  // Thêm bình luận mới
+  public function addComment($id_user, $id_product, $content_comment)
+  {
+    // Lấy thời gian hiện tại
+    $date_comment = date('Y-m-d H:i:s');
+
+    // Câu truy vấn chèn bình luận
+    $sql = "INSERT INTO comment (id_user, id_product, content_comment, date_comment) 
+            VALUES (:id_user, :id_product, :content_comment, :date_comment)";
+
+    // Chuẩn bị truy vấn
+    $stmt = $this->conn->prepare($sql);
+
+    // Bind các tham số vào câu truy vấn
+    $stmt->bindParam(':id_user', $id_user);
+    $stmt->bindParam(':id_product', $id_product);
+    $stmt->bindParam(':content_comment', $content_comment);
+    $stmt->bindParam(':date_comment', $date_comment); // Đảm bảo rằng bind cho date_comment
+
+    // Thực thi câu truy vấn
+    return $stmt->execute(); // Chạy truy vấn
+  }
+  public function getCommentsByProduct($id_product)
+  {
+    $stmt = $this->conn->prepare("SELECT * FROM comment WHERE id_product = ? ORDER BY date_comment   DESC");
+    $stmt->execute([$id_product]);
+    return $stmt->fetchAll(PDO::FETCH_ASSOC);
+  }
 }

@@ -24,6 +24,7 @@ class ProductController
     {
         $product = $this->productmodel->getProductdetail($id);
         $category = $this->productmodel->getAllcategory();
+        $comments = $this->productmodel->getCommentsByProduct($id);
         $loadProductcategorys = $this->productmodel->loadProductcategory($id, $category_id);
         $view = $this->productmodel->updateView($id);
 
@@ -79,5 +80,37 @@ class ProductController
         include 'view/search.php';
         include 'view/footer.php';
     }
-    
+
+    public function addComment()
+    {
+        if (!isset($_SESSION['user']) || empty($_SESSION['user']['id'])) {
+            echo "Bạn cần đăng nhập để bình luận.";
+            return;
+        }
+
+        if ($_SERVER['REQUEST_METHOD'] === 'POST') {
+            $id_user = $_SESSION['user']['id']; // Lấy ID người dùng từ session
+            $id_product = $_POST['id_product'] ?? null; // Lấy ID sản phẩm từ POST
+            $content_comment = $_POST['content_comment'] ?? null; // Lấy nội dung bình luận từ POST
+
+            // Kiểm tra dữ liệu đầu vào
+            if (!$id_product || !$content_comment ) {
+                echo "Thiếu dữ liệu, vui lòng thử lại!";
+                return;
+            }
+
+            // Gọi phương thức thêm bình luận
+            $isAdded = $this->productmodel->addComment($id_user, $id_product, $content_comment);
+            if ($isAdded) {
+                echo "Bình luận đã được thêm thành công!";
+                $uri = $_SESSION['URI'];
+
+                header('Location:' . $uri);
+// Quay lại trang sản phẩm chi tiết
+                exit;
+            } else {
+                echo "Có lỗi xảy ra, vui lòng thử lại.";
+            }
+        }
+    }
 }

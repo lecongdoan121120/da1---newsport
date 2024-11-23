@@ -10,11 +10,11 @@ class userModel
     }
     public function register($email, $password)
     {
-        $hashedPassword = password_hash($password, PASSWORD_BCRYPT);
+     
         $sql = "INSERT INTO users (email, password) VALUES (:email, :password)";
         $stmt = $this->conn->prepare($sql);
         $stmt->bindParam(":email", $email);
-        $stmt->bindParam(":password", $hashedPassword);
+        $stmt->bindParam(":password", $password);
         return $stmt->execute();
     }
 
@@ -51,6 +51,24 @@ class userModel
         } else {
             return false; // Không tìm thấy user
         }
+    }
+    public function update($id, $fullname, $phone_number, $adress)
+    {
+        $sql = "UPDATE user SET fullname = :fullname, phone_number = :phone_number, adress = :adress WHERE id = :id";
+        $stmt = $this->conn->prepare($sql);
+        $stmt->bindParam(':fullname', $fullname);
+        $stmt->bindParam(':phone_number', $phone_number);
+        $stmt->bindParam(':adress', $adress);
+        $stmt->bindParam(':id', $id);
+        return $stmt->execute();
+    }
+    public function getUserById($id)
+    {
+        $sql = "SELECT * FROM user WHERE id = :id";
+        $stmt = $this->conn->prepare($sql);
+        $stmt->bindParam(':id', $id);
+        $stmt->execute();
+        return $stmt->fetch(PDO::FETCH_ASSOC);
     }
 
 

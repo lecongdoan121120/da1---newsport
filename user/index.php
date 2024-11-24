@@ -4,10 +4,12 @@ session_start();
 require_once "./controller/ProductController.php";
 require_once "./controller/cartcontroller.php";
 require_once "./controller/usercontroller.php";
+require_once "./controller/odercontroller.php";
 $action = $_GET['action'] ?? 'home';
 $productcontroller = new ProductController;
 $cartcontroller = new CartController;
 $usercontroller = new usercontroller;
+$ordercontroller = new CheckoutController;
 switch ($action) {
   case 'home':
     $productcontroller->showAll();
@@ -44,5 +46,17 @@ switch ($action) {
       case 'comment' :
      $productcontroller->addComment();
      break;
+  case 'checkout':
+    $ordercontroller->checkout();
+    break;
+
+  case 'processCheckout':
+    $ordercontroller->processPayment();
+    break;
+    case 'oder' :
+      $ordercontroller->listoder();
+      break;
+      case 'odersdetail':
+        $ordercontroller->show($id);
 }
 ?>

@@ -134,7 +134,7 @@ class ProductModel
     $stmt->bindParam(':id_product', $id_product);
     $stmt->bindParam(':content_comment', $content_comment);
     $stmt->bindParam(':date_comment', $date_comment); // Đảm bảo rằng bind cho date_comment
-
+    
     // Thực thi câu truy vấn
     return $stmt->execute(); // Chạy truy vấn
   }

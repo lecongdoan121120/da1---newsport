@@ -1,23 +1,18 @@
 <?php
-class cartmodel
+class CartModel
 {
     private $cart;
-
-    function __construct()
+    public function __construct()
     {
-       
-
-        // Kiểm tra xem giỏ hàng đã tồn tại trong session chưa
         if (!isset($_SESSION['cart'])) {
-            $_SESSION['cart'] = []; // Khởi tạo giỏ hàng nếu chưa có
+            $_SESSION['cart'] = [];
         }
-
-        // Assign the cart session variable to the class property
-        $this->cart = $_SESSION['cart']; // Gán giỏ hàng trong session vào thuộc tính của lớp 
+        $this->cart = $_SESSION['cart'];
+        
+        $_SESSION['total'] = $this->getTotalQuantity();
     }
 
-
-    function addtocart($id, $title, $price, $quantity)
+    public function addtocart($id, $title, $price, $quantity)
     {
         if (isset($this->cart[$id])) {
             $this->cart[$id]['quantity'] += $quantity;
@@ -28,15 +23,12 @@ class cartmodel
                 'quantity' => $quantity,
             ];
         }
-        $_SESSION['cart'] = $this->cart; // Cập nhật lại session
-   
+        $_SESSION['cart'] = $this->cart;
     }
-
-    function getcart()
+    public function getcart()
     {
         return $this->cart;
     }
-
 
     public function getTotalPrice()
     {
@@ -45,10 +37,28 @@ class cartmodel
             $total += $item['price'] * $item['quantity'];
         }
         return $total;
-        
     }
-}
 
 
+    public function getTotalQuantity()
+    {
+        $carts = $_SESSION['cart'] ?? []; // Lấy giỏ hàng từ session
+        $totalQuantity = 0;
+
+        foreach ($carts as $cart) {
+            $totalQuantity += $cart['quantity']; // Cộng dồn số lượng
+        }
+        return $totalQuantity;
+    }
+
+    public function updateCartQuantities($quantities)
+    {
+        // Lặp qua các sản phẩm và cập nhật số lượng trong giỏ hàng
+        foreach ($quantities as $id => $qty) {
+            if (isset($_SESSION['cart'][$id])) {
+                $_SESSION['cart'][$id]['quantity'] = $qty;
+            }
+        }
+    }
     
-
+}

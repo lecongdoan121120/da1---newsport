@@ -2,61 +2,66 @@
 <?php
 session_start();
 require_once "./controller/ProductController.php";
-require_once "./controller/cartcontroller.php";
-require_once "./controller/usercontroller.php";
-require_once "./controller/odercontroller.php";
+require_once "./controller/CartController.php";
+require_once "./controller/UserController.php";
+require_once "./controller/OrderController.php";
 $action = $_GET['action'] ?? 'home';
-$productcontroller = new ProductController;
-$cartcontroller = new CartController;
-$usercontroller = new usercontroller;
-$ordercontroller = new CheckoutController;
+$ProdutController = new ProductController;
+$CartController = new CartController;
+$UserController = new UserController;
+$OrderController = new OrderController;
 switch ($action) {
   case 'home':
-    $productcontroller->showAll();
-    break;
-  case 'product-detail':
-    $productcontroller->productDetail($_GET['id'], $_GET['category_id']);
-    break;
-  case 'product-category':
-    $productcontroller->productCategory($_GET['id']);
-    break;
-  case 'search':
-    $productcontroller->search();
+    $ProdutController->showAll();
     break;
   case 'product':
-    $productcontroller->product();
+    $ProdutController->product();
+    break;
+  case 'product-detail':
+    $ProdutController->productDetail($_GET['id'], $_GET['category_id']);
+    break;
+  case 'product-category':
+    $ProdutController->productCategory($_GET['id']);
+    break;
+  case 'search':
+    $ProdutController->search();
+    break;
+  case 'comment':
+    $ProdutController->addComment();
+    break;
   case 'addToCart':
-    $cartcontroller->addToCart();
+    $CartController->addToCart();
     break;
   case 'viewCart':
-    $cartcontroller->viewCart();
+    $CartController->viewCart();
     break;
-  case 'register':
-    $usercontroller->register();
-    break;
-  case 'login':
-    $usercontroller->login();
-    break;
-  case 'logout':
-    $usercontroller->logout();
-    break;
-    case 'inforuser' :
-      $usercontroller->inforuser();
-      break; 
-      case 'comment' :
-     $productcontroller->addComment();
-     break;
-  case 'checkout':
-    $ordercontroller->checkout();
+  case 'deletecart':
+    $CartController->deleteProductInCart();
     break;
 
-  case 'processCheckout':
-    $ordercontroller->processPayment();
+  case 'register':
+    $UserController->register();
     break;
-    case 'oder' :
-      $ordercontroller->listoder();
-      break;
-      case 'odersdetail':
-        $ordercontroller->show($id);
+  case 'login':
+    $UserController->login();
+    break;
+  case 'logout':
+    $UserController->logout();
+    break;
+  case 'inforuser':
+    $UserController->inforuser();
+    break;
+  case 'checkout':
+    $OrderController->checkout();
+    break;
+  case 'pay':
+    $OrderController->pay();
+    break;
+  case 'listoders':
+    $OrderController->listoder();
+    break;
+  case 'odersdetail':
+    $OrderController->showOderdetail($_GET['odersid']);
+    break;
 }
 ?>

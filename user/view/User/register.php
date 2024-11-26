@@ -2,17 +2,14 @@
     <div class="container">
         <div class="form-register-wrap">
             <div class="flat-title align-items-start gap-0 mb_30 px-0">
-                <h5 class="mb_18">Register</h5>
-                <p class="text_black-2">Sign up for early Sale access plus tailored new arrivals, trends and promotions. To opt out, click unsubscribe in our emails</p>
+                <h5 class="mb_18">Đăng ký</h5>
+                <p class="text_black-2">Đăng ký để trở thanh thành viên của NewSprort</p>
             </div>
             <div>
                 <form id="register-form" action="?action=register" method="post" accept-charset="utf-8">
-                    <!-- Display error message if any -->
                     <?php if (!empty($error)): ?>
                         <div style="color: red;"><?= $error; ?></div>
                     <?php endif; ?>
-
-                    <!-- Display success message if any -->
                     <?php if (!empty($success)): ?>
                         <div style="color: green;"><?= $success; ?></div>
                     <?php endif; ?>
@@ -37,7 +34,7 @@
                         <button type="submit" class="tf-btn w-100 radius-3 btn-fill animate-hover-btn justify-content-center">Đăng ký</button>
                     </div>
                     <div class="text-center">
-                        <a href="?action=login" class="tf-btn btn-line">Already have an account? Log in here<i class="icon icon-arrow1-top-left"></i></a>
+                        <a href="?action=login" class="tf-btn btn-line">Bạn đã có tài khoản ? Đăng nhập tại đây<i class="icon icon-arrow1-top-left"></i></a>
                     </div>
                 </form>
             </div>

@@ -76,10 +76,8 @@
                             <li class="nav-search"><a href="#canvasSearch" data-bs-toggle="offcanvas" aria-controls="offcanvasLeft" class="nav-icon-item"><i class="icon icon-search"></i></a></li>
                             <?php
 
-                            $role = isset($_SESSION['user']['role']) ? $_SESSION['user']['role'] : 1;
-                            echo '<pre>';
-                            print_r($_SESSION);
-                            echo '</pre>';
+                            $role = isset($_SESSION['user']['role']) ? $_SESSION['user']['role'] : 2;
+
                             ?>
                             <div class="dropdown show">
                                 <?php if (isset($_SESSION['user'])): ?>
@@ -87,9 +85,8 @@
                                         <i class="icon icon-account"></i>
                                     </a>
                                     <div style="margin-right: 98px; margin-top:20px" class="dropdown-menu" aria-labelledby="dropdownMenuLink">
-                                        <a class="dropdown-item" href="?action=profile">Tài khoản</a>
+                                        <a class="dropdown-item" href="?action=inforuser">Tài khoản</a>
                                         <a class="dropdown-item" href="?action=logout">Đăng xuất</a>
-                                        <a class="dropdown-item" href="?action=inforuser">Thông tin cá nhân</a>
                                         <?php if ($role === 1): ?>
                                             <a class="dropdown-item" href="?action=admin_dashboard">Quản trị viên</a>
                                         <?php endif; ?>
@@ -104,10 +101,9 @@
                                     </div>
                                 <?php endif; ?>
                             </div>
-
-                            <li class="nav-cart"><a href="?action=viewCart" class="nav-icon-item"><i class="icon icon-bag"></i></a>
+                            <?php $totalQuantity = $_SESSION['total'] ?? 0;  ?>
+                            <li class="nav-cart"><a href="?action=viewCart" class="nav-icon-item"><i class="icon icon-bag"></i><span class="count-box"><?php echo $totalQuantity ?></span></a></li>
                             </li>
-
                         </ul>
                     </div>
                 </div>

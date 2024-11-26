@@ -238,6 +238,7 @@ body {
   color: var(--main);
   background-color: var(--white);
 }
+
 #wrapper {
   position: sticky;
   /* Hoặc fixed nếu muốn cố định hoàn toàn */

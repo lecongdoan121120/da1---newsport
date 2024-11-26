@@ -1,16 +1,16 @@
 <?php
 require_once 'model/cartmodel.php';
+require_once 'model/ProductModel.php';
 
 class CartController
 {
-    private $cartModel;
+    private $CartModel;
 
     public function __construct()
     {
-        $this->cartModel = new CartModel();
+        $this->CartModel = new CartModel();
     }
 
-    // Thêm sản phẩm vào giỏ hàng
     public function addToCart()
     {
 
@@ -19,28 +19,23 @@ class CartController
             $title = ($_POST['title']);
             $price = ($_POST['price']);
             $quantity = ($_POST['quantity']);
-            $this->cartModel->addToCart($id, $title, $price, $quantity);
-
-
+            $this->CartModel->addToCart($id, $title, $price, $quantity);
             $uri = $_SESSION['URI'];
-
             header('Location:' . $uri);
         }
     }
-
-
-    // Hiển thị giỏ hàng
     public function viewCart()
     {
-        $cart = $this->cartModel->getCart(); // Lấy giỏ hàng
-    
-        // Kiểm tra dữ liệu
-        var_dump($cart); // Debug để kiểm tra giỏ hàng
-
-
-        // Gọi các view
+        $cart = $this->CartModel->getCart();
+        $category = (new ProductModel)->getAllcategory();
         include 'view/header.php';
-        include 'view/cartview.php';
+        include 'view/Cart/cartview.php';
         include 'view/footer.php';
+    }
+    public function deleteProductInCart()
+    {
+        $id = $_GET['id'];
+        unset($_SESSION['cart'][$id]);
+        return header("location: ?action=viewCart");
     }
 }

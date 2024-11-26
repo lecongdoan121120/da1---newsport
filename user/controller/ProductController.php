@@ -3,112 +3,101 @@ require_once 'model/ProductModel.php';
 
 class ProductController
 {
-    private $productmodel;
+    private $ProductModel;
 
-    function __construct()
+    public function __construct()
     {
-        $this->productmodel = new ProductModel();
+        $this->ProductModel= new ProductModel();
     }
-    // Hiển thị tất cả sản phẩm
-    function showAll()
+    public function showAll()
     {
-        $products = $this->productmodel->getAllproduct();
-        $category = $this->productmodel->getAllcategory();
-        $loadProductview = $this->productmodel->loadProductview();
+        $products = $this->ProductModel->getAllproduct();
+        $category = $this->ProductModel->getAllcategory();
         include 'view/header.php';
         include 'view/home.php';
         include 'view/footer.php';
     }
-    // Hiển thị sản phẩm chi tiết
-    function productDetail($id, $category_id)
+    public function productDetail($id, $category_id)
     {
-        $product = $this->productmodel->getProductdetail($id);
-        $category = $this->productmodel->getAllcategory();
-        $comments = $this->productmodel->getCommentsByProduct($id);
-        $loadProductcategorys = $this->productmodel->loadProductcategory($id, $category_id);
-        $view = $this->productmodel->updateView($id);
+        $product = $this->ProductModel->getProductdetail($id);
+        $category = $this->ProductModel->getAllcategory();
+        $comments = $this->ProductModel->getCommentsByProduct($id);
+        $loadProductcategorys = $this->ProductModel->loadProductcategory($id, $category_id);
 
         $_SESSION['URI'] = $_SERVER['REQUEST_URI'];
         include 'view/header.php';
-        include 'view/product-detail.php';
+        include 'view/Product/product-detail.php';
         include 'view/footer.php';
     }
-    // Hiện thị sản phẩm theo danh mục
-    function productCategory($id)
+   public function productCategory($id)
     {
-        $productcategory = $this->productmodel->getProductcategory($id);
-        $category = $this->productmodel->getAllcategory();
-        $showCatogeryproduct = $this->productmodel->showProductcategory($id);
+        $productcategory = $this->ProductModel->getProductcategory($id);
+        $category = $this->ProductModel->getAllcategory();
+        $showCatogeryproduct = $this->ProductModel->showProductcategory($id);
         include 'view/header.php';
-        include 'view/product-category.php';
+        include 'view/Product/product-category.php';
         include 'view/footer.php';
     }
-    // Hiển thị trang sản phẩm
-    function product()  
+
+    function product()
     {
         // Lấy danh mục và sản phẩm
-        $category = $this->productmodel->getAllcategory();
+        $category = $this->ProductModel->getAllcategory();
         // Cấu hình phân trang
         $itemsPerPage = 12;
         $currentPage = isset($_GET['page']) ? (int)$_GET['page'] : 1;
         $offset = ($currentPage - 1) * $itemsPerPage;
 
         // Lấy dữ liệu
-        $products = $this->productmodel->getProducts($itemsPerPage, $offset);
-        $totalProducts = $this->productmodel->getTotalProducts();
+        $products = $this->ProductModel->getProducts($itemsPerPage, $offset);
+        $totalProducts = $this->ProductModel->getTotalProducts();
         $totalPages = ceil($totalProducts / $itemsPerPage);
 
 
         // Bao gồm các view cần thiết
         include 'view/header.php';
-        include 'view/product.php';
+        include 'view/Product/product.php';
         include 'view/footer.php';
     }
+    
     function search()
     {
-        // Kiểm tra xem có từ khóa tìm kiếm từ POST hay không
         if (isset($_POST['keyword'])) {
-            // Lấy từ khóa tìm kiếm từ POST
             $keyword = $_POST['keyword'];
-            $searchproduct = $this->productmodel->searchProduct($keyword);
-          
+            $searchproduct = $this->ProductModel->searchProduct($keyword);
         }
-        $category = $this->productmodel->getAllcategory();
+        $category = $this->ProductModel->getAllcategory();
 
-        // Bao gồm các view cần thiết
         include 'view/header.php';
-        include 'view/search.php';
+        include 'view/Product/search.php';
         include 'view/footer.php';
     }
 
     public function addComment()
     {
         if (!isset($_SESSION['user']) || empty($_SESSION['user']['id'])) {
-            echo "Bạn cần đăng nhập để bình luận.";
-            return;
+            include 'view/header.php';
+            include 'view/User/login.php';
+            include 'view/footer.php';
         }
 
         if ($_SERVER['REQUEST_METHOD'] === 'POST') {
-            $id_user = $_SESSION['user']['id']; // Lấy ID người dùng từ session
-            $id_product = $_POST['id_product'] ?? null; // Lấy ID sản phẩm từ POST
-            $content_comment = $_POST['content_comment'] ?? null; // Lấy nội dung bình luận từ POST
+            $id_user = $_SESSION['user']['id'];
+            $id_product = $_POST['id_product'] ?? null; 
+            $content_comment = $_POST['content_comment'] ?? null; 
 
-            // Kiểm tra dữ liệu đầu vào
-            if (!$id_product || !$content_comment ) {
+        if (!$id_product || !$content_comment) {
                 echo "Thiếu dữ liệu, vui lòng thử lại!";
                 return;
             }
 
-            // Gọi phương thức thêm bình luận
-            $isAdded = $this->productmodel->addComment($id_user, $id_product, $content_comment);
-            if ($isAdded) {
+            $isAdded = $this->ProductModel->addComment($id_user, $id_product, $content_comment);
+        if ($isAdded) {
                 echo "Bình luận đã được thêm thành công!";
                 $uri = $_SESSION['URI'];
-
                 header('Location:' . $uri);
-// Quay lại trang sản phẩm chi tiết
                 exit;
-            } else {
+     } else {
                 echo "Có lỗi xảy ra, vui lòng thử lại.";
             }
         }

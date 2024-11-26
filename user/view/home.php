@@ -1,5 +1,3 @@
-<!-- Slider -->
-
 <div class="tf-slideshow slider-effect-fade position-relative">
     <div dir="ltr" class="swiper tf-sw-slideshow" data-preview="1" data-tablet="1" data-mobile="1" data-centered="false" data-space="0" data-loop="true" data-auto-play="false" data-delay="0" data-speed="1000">
         <div class="swiper-wrapper">
@@ -22,7 +20,7 @@
                         <div class="container">
                             <p class="fade-item fade-item-1 fw-8 mb_15">FREE SHIPPING</p>
                             <h1 class="fade-item fade-item-2 fw-8">NIKE AIR MAX 1</h1>
-                            <a href="?action=product-detail&id=2&category_id=1" class="fade-item fade-item-3 tf-btn btn-fill animate-hover-btn btn-xl radius-3"><span>Mua ngay <i class="icon icon-arrow-right"></i></a>
+                            <a href="?action=product" class="fade-item fade-item-3 tf-btn btn-fill animate-hover-btn btn-xl radius-3"><span>Mua ngay <i class="icon icon-arrow-right"></i></a>
                         </div>
                     </div>
                 </div>
@@ -34,7 +32,7 @@
                         <div class="container">
                             <p class="fade-item fade-item-1 fw-8 mb_15">10% OFF TODAY</p>
                             <h1 class="fade-item fade-item-2 fw-8">STAN SMITH</h1>
-                            <a href="?action=product-detail&id=2&category_id=2" class="fade-item fade-item-3 tf-btn btn-fill animate-hover-btn btn-xl radius-3"><span>Mua ngay <i class="icon icon-arrow-right"></i></a>
+                            <a href="?action=product" class="fade-item fade-item-3 tf-btn btn-fill animate-hover-btn btn-xl radius-3"><span>Mua ngay <i class="icon icon-arrow-right"></i></a>
                         </div>
                     </div>
                 </div>
@@ -47,7 +45,6 @@
         </div>
     </div>
 </div>
-<!-- /Slider -->
 <section class="flat-spacing-9">
     <div class="container">
         <div class="position-relative">
@@ -57,12 +54,12 @@
                         <div class="swiper-slide" lazy="true">
                             <div class="collection-item hover-img style-2">
                                 <div class="collection-inner">
-                                    <a href="shop-collection-sub.html" class="collection-image img-style radius-10">
+                                    <a href="?action=product" class="collection-image img-style radius-10">
                                         <img class="lazyload" data-src="" src="public/img/anh1.jpg" alt="">
                                     </a>
                                     <div class="collection-content justify-content-end align-items-center">
                                         <div class="bottom">
-                                            <a href="shop-collection-sub.html" class="tf-btn collection-title hover-icon btn-light fs-14 fw-7 rounded-0"><span>ALL SNEAKERS</span><i class="icon icon-arrow1-top-left"></i></a>
+                                            <a href="?action=product" class="tf-btn collection-title hover-icon btn-light fs-14 fw-7 rounded-0"><span>ALL SNEAKERS</span><i class="icon icon-arrow1-top-left"></i></a>
                                         </div>
                                     </div>
                                 </div>
@@ -71,12 +68,12 @@
                         <div class="swiper-slide" lazy="true">
                             <div class="collection-item hover-img style-2">
                                 <div class="collection-inner">
-                                    <a href="shop-collection-sub.html" class="collection-image img-style radius-10">
+                                    <a href="?action=product" class="collection-image img-style radius-10">
                                         <img class="lazyload" data-src="" src="public/img/anh2.jpg" alt="collection-">
                                     </a>
                                     <div class="collection-content justify-content-end align-items-center">
                                         <div class="bottom">
-                                            <a href="shop-collection-sub.html" class="tf-btn collection-title hover-icon btn-light fs-14 fw-7 rounded-0"><span>NEW</span><i class="icon icon-arrow1-top-left"></i></a>
+                                            <a href="?action=product" class="tf-btn collection-title hover-icon btn-light fs-14 fw-7 rounded-0"><span>NEW</span><i class="icon icon-arrow1-top-left"></i></a>
                                         </div>
                                     </div>
                                 </div>
@@ -85,12 +82,12 @@
                         <div class="swiper-slide" lazy="true">
                             <div class="collection-item hover-img style-2">
                                 <div class="collection-inner">
-                                    <a href="shop-collection-sub.html" class="collection-image img-style radius-10">
+                                    <a href="?action=product" class="collection-image img-style radius-10">
                                         <img class="lazyload" data-src="" src="public/img/anh3.jpg" alt="">
                                     </a>
                                     <div class="collection-content justify-content-end align-items-center">
                                         <div class="bottom">
-                                            <a href="shop-collection-sub.html" class="tf-btn collection-title hover-icon btn-light fs-14 fw-7 rounded-0"><span>HOT</span><i class="icon icon-arrow1-top-left"></i></a>
+                                            <a href="?action=product" class="tf-btn collection-title hover-icon btn-light fs-14 fw-7 rounded-0"><span>HOT</span><i class="icon icon-arrow1-top-left"></i></a>
                                         </div>
                                     </div>
                                 </div>
@@ -99,12 +96,12 @@
                         <div class="swiper-slide" lazy="true">
                             <div class="collection-item hover-img style-2">
                                 <div class="collection-inner">
-                                    <a href="shop-collection-sub.html" class="collection-image img-style radius-10">
+                                    <a href="?action=product" class="collection-image img-style radius-10">
                                         <img class="lazyload" data-src="" src="PUBLIC/img/anh4.jpg" alt="">
                                     </a>
                                     <div class="collection-content justify-content-end align-items-center">
                                         <div class="bottom">
-                                            <a href="shop-collection-sub.html" class="tf-btn collection-title hover-icon btn-light fs-14 fw-7 rounded-0"><span>TRENDING</span><i class="icon icon-arrow1-top-left"></i></a>
+                                            <a href="?action=product" class="tf-btn collection-title hover-icon btn-light fs-14 fw-7 rounded-0"><span>TRENDING</span><i class="icon icon-arrow1-top-left"></i></a>
                                         </div>
                                     </div>
                                 </div>
@@ -119,7 +116,6 @@
         </div>
     </div>
 </section>
-<!-- brand -->
 <section class="flat-spacing-9 pt_0">
     <div class="container">
         <div dir="ltr" class="swiper tf-sw-brand" data-loop="false" data-play="false" data-preview="6" data-tablet="3" data-mobile="2" data-space-lg="0" data-space-md="0">
@@ -159,8 +155,6 @@
         <div class="sw-dots style-2 sw-pagination-brand justify-content-center"></div>
     </div>
 </section>
-<!-- /brand -->
-<!-- Collection -->
 <section class="flat-spacing-14 pt_0">
     <div class="container">
         <div class="masonry-layout-v4 wow fadeInUp" data-wow-delay="0s">
@@ -178,7 +172,7 @@
                 </a>
             </div>
             <div class="item-2 collection-item-v2 hover-img">
-                <a href=?action=product" class="collection-inner">
+                <a href="?action=product" class="collection-inner">
                     <div class="collection-image img-style">
                         <img class="lazyload" data-src="" src="public/img/sneaker-6.jpg" alt="collection-img">
                     </div>
@@ -191,7 +185,7 @@
                 </a>
             </div>
             <div class="item-3 collection-item-v2 hover-img">
-                <a href=?action=product" class="collection-inner">
+                <a href="?action=product" class="collection-inner">
                     <div class="collection-image img-style">
                         <img class="lazyload" data-src="" src="public/img/sneaker-7.jpg" alt="collection-img">
                     </div>
@@ -206,17 +200,12 @@
         </div>
     </div>
 </section>
-<!-- /Collection -->
-<!-- page-title -->
 <div class="tf-page-title">
     <div class="container-full">
         <div class="heading text-center"> SẢN PHẨM MỚI </div>
         <p class="text-center text-2 text_black-2 mt_5">Mua sắm qua bộ sưu tập mới nhất của chúng tôi</p>
     </div>
 </div>
-<!-- /page-title -->
-
-<!-- product -->
 <section class="flat-spacing-2">
     <div class="container">
         <div class="wrapper-control-shop">
@@ -241,9 +230,7 @@
                         </div>
 
                         <div class="card-product-info">
-                            <a href="index.php?action=product-detail&id=<?php echo $product['id']; ?>" class="title link">
-                                <?php echo htmlspecialchars($product['title']); ?>
-                            </a>
+                            <a href="index.php?action=product-detail&id=<?php echo $product['id']; ?>&category_id=<?php echo $product['category_id']; ?>" class="title link"><?php echo $product['title'] ?></a>
                             <div style="display: flex; gap:9px">
                                 <del class="price"><?php echo number_format($product['price'], 0, ',', '.'); ?>₫</del>
                                 <p style="color: red;" class="price">

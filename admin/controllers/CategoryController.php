@@ -3,6 +3,11 @@
 class CategoryController
 {
     // Hiển thị danh sách các danh mục
+
+    public function dashboard() {
+
+      include 'views/sidebar.php';
+    }
     public function list()
     {
         // Lấy thông báo từ session và xóa nó sau khi hiển thị
@@ -13,19 +18,24 @@ class CategoryController
         $data = new CategoryModel();
         $categorys = $data->all();
 
-        // Gửi dữ liệu và thông báo vào view
+        include 'views/sidebar.php';
         include 'views/homeCategory.php';
     }
 
     // Thêm danh mục mới
     public function add()
-    {
+    {    
         include 'views/addCategory.php';
+        include 'views/sidebar.php';
+        
     }
     public function store()
     {
         $category = $_POST;
 
+        (new categoryModel)->add($category);
+        $category = $_POST;
+        // var_dump($data);
         (new categoryModel)->add($category);
         header("location: index.php?action=homeCategory");
         die;
@@ -36,6 +46,7 @@ class CategoryController
         if ($_SERVER['REQUEST_METHOD'] == "POST") {
             $data = $_POST;
 
+        // Hiển thị trang form thêm mới 
             (new CategoryModel)->update($data, $data['id']);
         }
         $id = $_GET['id'];

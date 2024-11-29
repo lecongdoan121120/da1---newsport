@@ -6,12 +6,14 @@ class ProductController
     {
         $products = new ProductModel();
         $data = $products->all();
-        include 'views/homeProduct.php';
+        include 'views/sidebar.php';
+        include 'views/listProduct.php';
     }
     public function add()
     {
         $categorys = (new CategoryModel)->all();
-        include 'views/addProduct.php';
+        include 'views/sidebar.php';
+        include 'views/addProduct.php';     
     }
     public function store()
     {
@@ -30,7 +32,7 @@ class ProductController
 
 
         $_SESSION['mesage'] = "Thêm dữ liệu thàn công";
-        header("location:" . ROOT_URL . "?action=homeProduct");
+        header("location:" . ROOT_URL . "?action=listProduct");
         die;
     }
     public function delete()
@@ -38,7 +40,7 @@ class ProductController
         $id = $_GET['id'];
         (new ProductModel)->delete($id);
         $_SESSION['message'] = "Xóa sản phẩm thành công";
-        header("location: index.php?action=homeProduct");
+        header("location: index.php?action=listProduct");
         die;
     }
 }

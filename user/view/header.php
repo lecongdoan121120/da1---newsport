@@ -88,7 +88,7 @@
                                         <a class="dropdown-item" href="?action=inforuser">Tài khoản</a>
                                         <a class="dropdown-item" href="?action=logout">Đăng xuất</a>
                                         <?php if ($role === 1): ?>
-                                            <a class="dropdown-item" href="?action=admin_dashboard">Quản trị viên</a>
+                                            <a class="dropdown-item" href="http://localhost:3000/admin/index.php">Quản trị viên</a>
                                         <?php endif; ?>
                                     </div>
                                 <?php else: ?>

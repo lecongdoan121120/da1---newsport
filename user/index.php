@@ -12,7 +12,7 @@ $UserController = new UserController;
 $OrderController = new OrderController;
 switch ($action) {
   case 'home':
-    $ProdutController->showAll();
+    $ProdutController->showAll();                        
     break;
   case 'product':
     $ProdutController->product();
@@ -35,10 +35,8 @@ switch ($action) {
   case 'viewCart':
     $CartController->viewCart();
     break;
-  case 'deletecart':
-    $CartController->deleteProductInCart();
-    break;
-
+    case 'deletecart' :
+      $CartController->deleteProductInCart();
   case 'register':
     $UserController->register();
     break;
@@ -63,5 +61,6 @@ switch ($action) {
   case 'odersdetail':
     $OrderController->showOderdetail($_GET['odersid']);
     break;
+  
 }
 ?>

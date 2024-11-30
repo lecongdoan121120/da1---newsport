@@ -56,13 +56,13 @@
                                     </div>
                                 </li>
                                 <li class="menu-item">
-                                    <a href="?action=" class="item-link letter-spacing-3">Giới thiệu</a>
+                                    <a href="?action=about" class="item-link letter-spacing-3">Giới thiệu</a>
                                 </li>
                                 <li class="menu-item">
-                                    <a href="?action=" class="item-link letter-spacing-3">Tin tức</a>
+                                    <a href="?action=blog" class="item-link letter-spacing-3">Tin tức</a>
                                 </li>
                                 <li class="menu-item">
-                                    <a href="?action=" class="item-link letter-spacing-3">Liên hệ</a>
+                                    <a href="?action=contact" class="item-link letter-spacing-3" class="item-link letter-spacing-3">Liên hệ</a>
                                 </li>
                             </ul>
                         </nav>

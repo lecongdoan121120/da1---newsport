@@ -9,6 +9,26 @@ class ProductController
     {
         $this->ProductModel= new ProductModel();
     }
+    public function contact(){
+        $category = $this->ProductModel->getAllcategory();
+        include 'view/header.php';
+        include 'view/contact.php';
+        include 'view/footer.php';
+    }
+    public function about ()
+    {
+        $category = $this->ProductModel->getAllcategory();
+        include 'view/header.php';
+        include 'view/about.php';
+        include 'view/footer.php';
+    }
+    public function blog()
+    {
+        $category = $this->ProductModel->getAllcategory();
+        include 'view/header.php';
+        include 'view/blog.php';
+        include 'view/footer.php';
+    }
     public function showAll()
     {
         $products = $this->ProductModel->getAllproduct();

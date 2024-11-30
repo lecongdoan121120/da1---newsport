@@ -61,6 +61,14 @@ switch ($action) {
   case 'odersdetail':
     $OrderController->showOderdetail($_GET['odersid']);
     break;
-  
+  case 'contact' :
+    $ProdutController->contact();
+    break;
+  case 'about':
+    $ProdutController->about();
+    break;
+  case 'blog':
+    $ProdutController->blog();
+    break;
 }
 ?>

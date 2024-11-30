@@ -15,11 +15,11 @@
                                           <table class="table all-package theme-table table-product" id="table_id">
                                               <thead>
                                                   <tr>
-                                                      <th>Id</th>
-                                                      <th>Fullname</th>
+                                                      <th>#Id</th>
+                                                      <th>Họ Tên</th>
                                                       <th>Email</th>
                                                       <th>Số điện thoại</th>
-                                                      <th>Vai trò</th>
+                                                      <th>Chức vụ</th>
                                                       <th>Địa chỉ</th>
                                                       <th>Hành động</th>
                                                   </tr>
@@ -33,15 +33,25 @@
                                                           <td> <?= $users['fullname'] ?></td>
                                                           <td> <?= $users['email'] ?></td>
                                                           <td><?= $users['phone_number'] ?></td>
-                                                          <td><?= $users['role'] ?></td>
+                                                          <td><?= $users['role'] == 1 ? 'Admin' : 'User' ?></td>
                                                           <td><?= $users['adress'] ?></td>
                                                           <td>
                                                               <ul>
+
+
                                                                   <li>
-                                                                      <a href="?action=deleteuser&id=<?= $users['id'] ?>">Xóa</a>
+                                                                      <a href="?action=deleteuser&id=<?= $users['id'] ?>"><i class="ri-delete-bin-line"></i></a>
+
+                                                                      </a>
                                                                   </li>
-                                                            
+
+                                                                  <li>
+                                                                      <a href="?action=edituser&id=<?= $users['id'] ?>"> <i class="ri-pencil-line"></i>
+
+                                                                      </a>
+                                                                  </li>
                                                               </ul>
+
                                                           </td>
                                                       </tr>
                                                   <?php endforeach; ?>

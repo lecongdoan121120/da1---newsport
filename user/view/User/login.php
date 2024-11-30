@@ -20,7 +20,7 @@
                                     <a href="#recover" class="tf-btn btn-line">Bạn quên mật khẩu?</a>
                                 </div>
                                 <div class="">
-                                    <button type="submit" class="tf-btn w-100 radius-3 btn-fill animate-hover-btn justify-content-center">Log in</button>
+                                    <button type="submit" class="tf-btn w-100 radius-3 btn-fill animate-hover-btn justify-content-center">Đăng nhập</button>
                                 </div>
                             </form>
                         </div>

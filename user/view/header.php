@@ -3,8 +3,8 @@
 
 <head>
     <!-- LINK -->
-    <link rel="stylesheet" href="public/fonts/fonts.css">
     <link rel="stylesheet" href="public/fonts/font-icons.css">
+    <link rel="stylesheet" href="public/fonts/fonts.css">
     <link rel="stylesheet" href="public/css/bootstrap.min.css">
     <link rel="stylesheet" href="public/css/swiper-bundle.min.css">
     <link rel="stylesheet" href="public/css/animate.css">
@@ -14,6 +14,7 @@
     <link rel="stylesheet" href="public/css/image-compare-viewer.mincss" />
     <link rel="stylesheet" href="public/css/photoswipemin.css" />
     <link rel="stylesheet" href="public/css/swiper-bundle.min.css" />
+
 
 
     <title>Website</title>
@@ -88,7 +89,7 @@
                                         <a class="dropdown-item" href="?action=inforuser">Tài khoản</a>
                                         <a class="dropdown-item" href="?action=logout">Đăng xuất</a>
                                         <?php if ($role === 1): ?>
-                                            <a class="dropdown-item" href="http://localhost:3000/admin/index.php">Quản trị viên</a>
+                                            <a class="dropdown-item" href="/duan1/admin/">Quản trị viên</a>
                                         <?php endif; ?>
                                     </div>
                                 <?php else: ?>

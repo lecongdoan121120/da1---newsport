@@ -7,13 +7,13 @@ class ProductController
         $products = new ProductModel();
         $data = $products->all();
         include 'views/sidebar.php';
-        include 'views/listProduct.php';
+        include 'views/ProductAdmin/listProduct.php';
     }
     public function add()
     {
         $categorys = (new CategoryModel)->all();
         include 'views/sidebar.php';
-        include 'views/addProduct.php';     
+        include 'views/ProductAdmin/addProduct.php';     
     }
     public function store()
     {

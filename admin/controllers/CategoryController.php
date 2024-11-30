@@ -19,13 +19,13 @@ class CategoryController
         $categorys = $data->all();
 
         include 'views/sidebar.php';
-        include 'views/homeCategory.php';
+        include 'views/CategoryAdmin/homeCategory.php';
     }
 
     // Thêm danh mục mới
     public function add()
     {    
-        include 'views/addCategory.php';
+        include 'views/CategoryAdmin/addCategory.php';
         include 'views/sidebar.php';
         
     }
@@ -53,7 +53,7 @@ class CategoryController
         $category = (new CategoryModel)->find_One($id);
 
 
-        include 'views/editCategory.php';
+        include 'views/CategoryAdmin/editCategory.php';
     }
 
     // Xóa danh mục

@@ -12,7 +12,7 @@ class UserController
 
         $user = $this->model->getAll();
         include 'views/sidebar.php';
-        include 'views/listuser.php';
+        include 'views/UserAdmin/listuser.php';
     }
     public function create()
     {
@@ -31,7 +31,7 @@ class UserController
             }
         }
         include 'views/sidebar.php';
-        include 'views/adduser.php';
+        include 'views/UserAdmin/adduser.php';
     }
 
  
@@ -43,4 +43,43 @@ class UserController
             header('Location: ?action=listuser');
         }
     }
-}
+    public function edit()
+    {
+        $id = $_GET['id'] ;
+        if ($_SERVER['REQUEST_METHOD'] === 'POST') {
+            // Lấy dữ liệu từ form
+            $fullname = $_POST['fullname'];
+            $email = $_POST['email'];
+            $phone_number = $_POST['phone_number'];
+            $password = $_POST['password'];
+            $role = $_POST['role'];
+            $adress = $_POST['adress'];
+
+            // Cập nhật thông tin người dùng
+            $updated = $this->model->updateUser($id, $fullname, $email, $phone_number, $password, $role, $adress);
+            if ($updated) {
+                header("Location: index.php?action=listuser");
+                exit;
+            } else {
+                echo "Cập nhật không thành công.";
+            }
+        }
+
+        // Lấy thông tin người dùng từ CSDL để hiển thị trong form
+        $user = $this->model->getUserById($id);
+        if (!$user) {
+            echo "Người dùng không tồn tại.";
+            exit;
+        }
+
+        // Hiển thị giao diện chỉnh sửa
+        include 'views/sidebar.php';
+        include 'views/UserAdmin/edituser.php';
+    }
+
+
+
+
+
+
+} 

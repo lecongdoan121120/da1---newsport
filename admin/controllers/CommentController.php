@@ -12,7 +12,7 @@ class CommentController
     {
         $comments = $this->model->getAllComments();
         include 'views/sidebar.php';
-        include 'views/comment.php';
+        include 'views/CommentAdmin/comment.php';
     }
     public function delete($id)
     {  

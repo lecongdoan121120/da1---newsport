@@ -45,9 +45,7 @@ class OrderController
             );
             date_default_timezone_set('Asia/Ho_Chi_Minh'); // Thiết lập múi giờ Việt Nam
             $orders_date = date('Y-m-d H:i:s'); // Lấy thời gian hiện tại theo định dạng
-            $status = 'pending';
-
-            // Tạo đơn hàng trong cơ sở dữ liệu
+            $status = 'Chờ xác nhận';
             $order_id = $this->OrderModel->CreateOrder(
                 $user_id,
                 $fullname,

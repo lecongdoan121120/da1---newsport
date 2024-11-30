@@ -52,13 +52,15 @@
                                                             </div>
 
                                                             <div class="row align-items-center">
-                                                                <label
-                                                                    class="col-lg-2 col-md-3 col-form-label form-label-title">Phân quyền
-                                                                </label>
+                                                                <label class="col-lg-2 col-md-3 col-form-label form-label-title">Phân quyền</label>
                                                                 <div class="col-md-9 col-lg-10">
-                                                                    <input name="role" class="form-control" type="number">
+                                                                    <select name="role" class="form-control">
+                                                                        <option value="1">Admin</option>
+                                                                        <option value="2">User</option>
+                                                                    </select>
                                                                 </div>
                                                             </div>
+                                                            <input type="hidden" name="id" value="1"> <!-- ID người dùng -->
                                                             <button type="submit">Thêm</button>
                                                         </div>
                                                     </form>

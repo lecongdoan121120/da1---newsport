@@ -41,6 +41,7 @@
                            <label for="note">Ghi chú</label>
                            <textarea name="note" id="note"></textarea>
                        </fieldset>
+                       </fieldset>
                    </div>
                    <div style="width: 700px;margin-left:680px;margin-top:-620px">
                        <h5 class="fw-5 mb_20">Chi tiết giỏ hàng</h5>
@@ -80,6 +81,17 @@
                                <h6 class="total fw-5"><?= number_format($total_price) ?> VND</h6>
                            </div>
                            <button type="submit" class="tf-btn radius-3 btn-fill btn-icon animate-hover-btn justify-content-center">Thanh toán</button>
+                           <fieldset class="box fieldset">
+
+                               <div>
+
+                                   <label for="cash-on-delivery">Thanh toán khi nhận hàng<span><input type="radio" id="cash-on-delivery" name="payment_method" value="COD" required></span></label>
+                               </div>
+                               <div>
+
+                                   <label for="bank-transfer">Chuyển khoản ngân hàng<span><input type="radio" id="bank-transfer" name="payment_method" value="BankTransfer"></span></label>
+                               </div>
+                           </fieldset>
                        </div>
                    </div>
                </form>

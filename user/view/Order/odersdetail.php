@@ -12,27 +12,28 @@
                </div>
                <div class="col-lg-9">
                    <div class="wd-form-order">
-                       <?php foreach ($orderDetails as $detail): ?>
-                           <div class="tf-grid-layout md-col-2 gap-15">
-                               <div class="item">
-                                   <div class="text-2 text_black-2">Sản phẩm</div>
-                                   <div class="text-2 mt_4 fw-6"><?= htmlspecialchars($detail['product_name']) ?></div>
-                               </div>
-                               <div class="item">
-                                   <div class="text-2 text_black-2">Giá</div>
-                                   <div class="text-2 mt_4 fw-6"><?= number_format($detail['price']) ?> VND</div>
-                               </div>
-                               <div class="item">
-                                   <div class="text-2 text_black-2">Số lượng</div>
-                                   <div class="text-2 mt_4 fw-6"><?= htmlspecialchars($detail['quantity']) ?></div>
-                               </div>
-                               <div class="item">
-                                   <div class="text-2 text_black-2">Tổng tiền</div>
-                                   <div class="text-2 mt_4 fw-6"><?= number_format($detail['price'] * $detail['quantity']) ?> VND</div>
-                               </div>
-                           <?php endforeach; ?>
-                           </div>
+                       <table class="table table-striped">
+                           <thead>
+                               <tr>
+                                   <th scope="col">Id</th>
+                                   <th scope="col">Sản phẩm</th>
+                                   <th scope="col">Giá</th>
+                                   <th scope="col">Số lượng</th>
+                                   <th scope="col">Tổng tiền</th>
+                               </tr>
+                           </thead>
+                           <tbody>
+                               <?php foreach ($orderDetails as $detail): ?>
+                                   <tr>
+                                       <th scope="row"><?= ($detail['id']) ?></th>
+                                       <td><?= ($detail['product_name']) ?></td>
+                                       <td><?= ($detail['price']) ?> VND</td>
+                                       <td><?= ($detail['quantity']) ?></td>
+                                       <td><?= ($detail['price'] * $detail['quantity']) ?> VND</td>
+                                   </tr>
+                           </tbody>
+                       <?php endforeach; ?>
+                       </table>
                    </div>
                </div>
-           </div>
    </section>

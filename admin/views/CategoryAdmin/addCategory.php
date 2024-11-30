@@ -1,17 +1,6 @@
 <div class="page-wrapper compact-wrapper" id="pageWrapper">
-    <!-- Page Header Start-->
-
-    <!-- Page Header Ends-->
-
-    <!-- Page Body start -->
     <div class="page-body-wrapper">
-        <!-- Page Sidebar Start-->
-
-        <!-- Page Sidebar Ends-->
-
         <div class="page-body">
-
-            <!-- New Product Add Start -->
             <div class="container-fluid">
                 <div class="row">
                     <div class="col-12">
@@ -31,12 +20,6 @@
                     </div>
                 </div>
             </div>
-            <!-- New Product Add End -->
-
-
-            <!-- footer En -->
         </div>
-        <!-- Container-fluid End -->
     </div>
-    <!-- Page Body End -->
 </div>

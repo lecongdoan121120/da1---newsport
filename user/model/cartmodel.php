@@ -12,13 +12,14 @@ class CartModel
         $_SESSION['total'] = $this->getTotalQuantity();
     }
 
-    public function addtocart($id, $title, $price, $quantity)
+    public function addtocart($id, $title, $thumbnail, $price, $quantity)
     {
         if (isset($this->cart[$id])) {
             $this->cart[$id]['quantity'] += $quantity;
         } else {
             $this->cart[$id] = [
                 'title' => $title,
+                'thumbnail' => $thumbnail,
                 'price' => $price,
                 'quantity' => $quantity,
             ];

@@ -14,6 +14,7 @@
                             <thead>
                                 <tr>
                                     <th>Sản phẩm</th>
+                                    <th>Ảnh</th>
                                     <th>Giá</th>
                                     <th>Số lượng</th>
                                     <th>Tổng tiền</th>
@@ -23,22 +24,28 @@
                             <tbody>
                                 <?php foreach ($cart as $id => $item): ?>
                                     <tr class="tf-cart-item file-delete">
-                                        <td class="tf-cart-item_product">
+                                        <td>
                                             <div class="cart-info">
                                                 <a href="" class="cart-title link"></a>
                                                 <?= htmlspecialchars($item['title'] ?? 'Không xác định') ?>
                                             </div>
+                                        </td>
+                                        <td>
+                                            <img src="<?= htmlspecialchars($item['thumbnail']) ?>"
+                                               
+                                                style="width: 80px; height: auto; border-radius: 5px; margin-left:100px">
                                         </td>
                                         <td class="tf-cart-item_price" cart-data-title="Price">
                                             <div class="cart-price">
                                                 <?= number_format((float)($item['price'] ?? 0), 0, ',', '.') ?>đ
                                             </div>
                                         </td>
+
                                         <td class="tf-cart-item_quantity" cart-data-title="Quantity">
                                             <div class="cart-price">
                                                 <?= (int)($item['quantity'] ?? 0) ?>
                                             </div>
-                                
+
                                         </td>
                                         <td class="tf-cart-item_total" cart-data-title="Total">
                                             <div class="cart-price  ">
@@ -50,7 +57,7 @@
                                                 <i class="bi bi-trash"></i> Xóa
                                             </a>
                                         </td>
-                                
+
                                     </tr>
                                 <?php endforeach; ?>
                             </tbody>

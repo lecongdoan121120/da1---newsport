@@ -17,18 +17,27 @@ class ProductModel
     }
     public function add($data)
     {
-        $sql = "INSERT INTO product(category_id, title, price, discount, thumbnail, description, created_at, updated_at, status) VALUE (:category_id, :title, :price, :discount, :thumbnail, :description, :created_at, :updated_at, :status)";
+        $sql = "INSERT INTO product (category_id, title, price, discount, thumbnail, description, created_at, status) 
+            VALUES (:category_id, :title, :price, :discount, :thumbnail, :description, :created_at, :status)";
         $stmt = $this->conn->prepare($sql);
-        $stmt->execute($data);
-    }
-    public function update($data, $id)
-    {
-        $sql = "UPDATE product SET category_id=:category_id, title=:title, price=:price, discount=:discount, thumbnail=:thumbnail, description=:description, created_at=:created_at, updated_at=:updated_at status=:status WHERE id=:id";
-        $stmt = $this->conn->prepare($sql);
-        $data['id'] = $id;
         $stmt->execute($data);
     }
 
+    public function update($data, $id)
+    {
+        $sql = "UPDATE product SET category_id=:category_id, title=:title, price=:price, discount=:discount, thumbnail=:thumbnail, description=:description, status=:status WHERE id=:id";
+        $stmt = $this->conn->prepare($sql);
+        // var_dump($data);
+        $data['id'] = $id;
+        $stmt->execute($data);
+    }
+    public function find_one($id)
+    {
+        $sql = "SELECT * FROM product WHERE id=$id";
+        $stmt  = $this->conn->prepare($sql);
+        $stmt->execute();
+        return $stmt->fetch(PDO::FETCH_ASSOC);
+    }
     public function delete($id)
     {
         $sql = "DELETE FROM product WHERE id=:id";

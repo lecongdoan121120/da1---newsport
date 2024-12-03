@@ -2,7 +2,7 @@
 session_start();
 require_once __DIR__ . '/../config.php';
 const ROOT_DIR = __DIR__ . "/";
-const ROOT_URL ="http://localhost:8080/duan1/admin/";
+const ROOT_URL = "http://localhost/da1---newsport-main%20(3)/da1---newsport-main/admin/index.php";
 if ($_SESSION['user']['role'] != 1) { // Không phải admin
     echo "Access denied! You do not have permission to access this page.";
     exit();
@@ -58,6 +58,12 @@ switch ($action) {
     case "deleteProduct":
         $ProductController->delete();
         break;
+    case "editProduct":
+        $ProductController->edit();
+        break;
+    case "updateProduct":
+        $ProductController->update();
+        break;
     case "comment":
         $CommentController->getcomment();
         break;
@@ -77,13 +83,13 @@ switch ($action) {
     case 'edituser':
         $UserController->edit();
         break;
-        case 'listorder':
+    case 'listorder':
         $OrderController->listOrders();
         break;
-        case  'orderdetail' :
-            $OrderController->showOderdetail($_GET['odersid']);
+    case  'orderdetail':
+        $OrderController->showOderdetail($_GET['odersid']);
         break;
-        
+
     default:
         echo "404 NOT FOUND";
         break;

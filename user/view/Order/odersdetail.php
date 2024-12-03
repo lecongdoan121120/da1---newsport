@@ -17,6 +17,7 @@
                                <tr>
                                    <th scope="col">Id</th>
                                    <th scope="col">Sản phẩm</th>
+                                   <th scope="col">Ảnh</th>
                                    <th scope="col">Giá</th>
                                    <th scope="col">Số lượng</th>
                                    <th scope="col">Tổng tiền</th>
@@ -27,6 +28,11 @@
                                    <tr>
                                        <th scope="row"><?= ($detail['id']) ?></th>
                                        <td><?= ($detail['product_name']) ?></td>
+                                       <td>
+                                           <img src="<?= htmlspecialchars($detail['product_thumbnail']) ?>"
+                                               alt="<?= htmlspecialchars($detail['product_name']) ?>"
+                                               style="width: 80px; height: auto; border-radius: 5px;">
+                                       </td>
                                        <td><?= ($detail['price']) ?> VND</td>
                                        <td><?= ($detail['quantity']) ?></td>
                                        <td><?= ($detail['price'] * $detail['quantity']) ?> VND</td>

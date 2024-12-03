@@ -23,12 +23,13 @@ class OrderModel
         $stmt->execute();
         return $this->conn->lastInsertId();
     }
-    public function createOrderDetail($oders_id, $product_name, $price, $quantity)
+    public function createOrderDetail($oders_id, $product_name, $product_thumbnail, $price, $quantity)
     {
-        $sql = "INSERT INTO oders_detail (oders_id, product_name, price, quantity) VALUES (:oders_id, :product_name, :price, :quantity)";
+        $sql = "INSERT INTO oders_detail (oders_id, product_name, product_thumbnail, price, quantity) VALUES (:oders_id,:product_name , :product_thumbnail, :price, :quantity)";
         $stmt = $this->conn->prepare($sql);
         $stmt->bindParam(':oders_id', $oders_id);
         $stmt->bindParam(':product_name', $product_name);
+        $stmt->bindParam(':product_thumbnail', $product_thumbnail);
         $stmt->bindParam(':price', $price);
         $stmt->bindParam(':quantity', $quantity);
         $stmt->execute();
@@ -48,6 +49,15 @@ class OrderModel
         $stmt->bindParam(':oders_id', $orderid, PDO::PARAM_INT);
         $stmt->execute();
         return $stmt->fetchAll(PDO::FETCH_ASSOC);
+    }
+  
+    public function updateOrderStatus($id, $status)
+    {
+        $sql = "UPDATE oders SET status = :status WHERE id = :id";
+        $stmt = $this->conn->prepare($sql);
+        $stmt->bindParam(':status', $status, PDO::PARAM_STR);
+        $stmt->bindParam(':id', $id, PDO::PARAM_INT);
+        return $stmt->execute();
     }
 }
     

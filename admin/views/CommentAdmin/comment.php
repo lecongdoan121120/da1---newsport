@@ -15,7 +15,7 @@
                                           <table class="table all-package theme-table table-product" id="table_id">
                                               <thead>
                                                   <tr>
-                                                      <th>Id</th>
+                                                      <th>#</th>
                                                       <th>Id khách hàng</th>
                                                       <th>Id sản phẩm</th>
                                                       <th>Nội dung</th>

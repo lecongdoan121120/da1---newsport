@@ -27,7 +27,7 @@
                        </fieldset>
                        <fieldset class="box fieldset">
                            <label for="address">Email</label>
-                           <input type="email" name="email" value="<?= htmlspecialchars($user['email']) ?>" required>
+                           <input type="email" name="email" value="<?= htmlspecialchars($user['email']) ?>" readonly>
                        </fieldset>
                        <fieldset class="box fieldset">
                            <label for="phone">Số điện thoại</label>
@@ -50,6 +50,7 @@
                                <thead>
                                    <tr>
                                        <th>Sản phẩm</th>
+                                       <th>Ảnh</th>
                                        <th>Giá</th>
                                        <th>Số lượng</th>
                                    </tr>
@@ -60,6 +61,11 @@
                                            <td class="tf-cart-item_product">
                                                <div class="cart-info">
                                                    <?= htmlspecialchars($item['title'] ?? 'Không xác định') ?>
+                                               </div>
+                                           </td>
+                                           <td class="tf-cart-item_price" cart-data-title="Price">
+                                               <div class="cart-price">
+                                                   <img src="<?= $item['thumbnail'] ?>" alt="" style="width: 80px; height: auto; border-radius: 5px; ">
                                                </div>
                                            </td>
                                            <td class="tf-cart-item_price" cart-data-title="Price">

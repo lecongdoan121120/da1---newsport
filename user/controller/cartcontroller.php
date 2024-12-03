@@ -17,9 +17,10 @@ class CartController
         if ($_SERVER['REQUEST_METHOD'] === 'POST') {
             $id = ($_POST['id']);
             $title = ($_POST['title']);
+            $thumbnail = ($_POST['thumbnail']);
             $price = ($_POST['price']);
             $quantity = ($_POST['quantity']);
-            $this->CartModel->addToCart($id, $title, $price, $quantity);
+            $this->CartModel->addToCart($id, $title,$thumbnail, $price, $quantity);
             $uri = $_SESSION['URI'];
             header('Location:' . $uri);
         }

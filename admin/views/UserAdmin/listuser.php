@@ -7,7 +7,7 @@
                           <div class="card card-table">
                               <div class="card-body">
                                   <div class="title-header option-title d-sm-flex d-block">
-                                      <h5>Danh sách sản phẩm</h5>
+                                      <h5>Danh sách người dùng</h5>
 
                                   </div>
                                   <div>
@@ -15,7 +15,7 @@
                                           <table class="table all-package theme-table table-product" id="table_id">
                                               <thead>
                                                   <tr>
-                                                      <th>#Id</th>
+                                                      <th>#</th>
                                                       <th>Họ Tên</th>
                                                       <th>Email</th>
                                                       <th>Số điện thoại</th>

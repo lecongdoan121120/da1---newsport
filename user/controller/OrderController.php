@@ -61,9 +61,11 @@ class OrderController
             foreach ($_SESSION['cart'] as $item) {
                 $this->OrderModel->CreateOrderDetail(
                     $order_id,
-                    $item['title'],      // Tên sản phẩm
+                    $item['title'],
+                    $item['thumbnail'],       // Tên sản phẩm
                     $item['price'],      // Giá sản phẩm
-                    $item['quantity']    // Số lượng sản phẩm
+                    $item['quantity'],
+                  // Số lượng sản phẩm
                 );
             }
 
@@ -80,6 +82,16 @@ class OrderController
     public function listoder()
     {
         $category = (new ProductModel)->getAllcategory();
+        if ($_SERVER['REQUEST_METHOD'] === 'POST' && isset($_POST['order_id'], $_POST['status'])) {
+            $order_id = (int)$_POST['order_id'];
+            $status = $_POST['status'];
+
+            $this->OrderModel->updateOrderStatus($order_id, $status);
+
+          
+            header("Location: " . $_SERVER['REQUEST_URI']);
+            exit;
+        }
         if (isset($_SESSION['user'])) {
             $userId = $_SESSION['user']['id'];
             $orders = $this->OrderModel->getByUserId($userId);
@@ -93,10 +105,16 @@ class OrderController
     public function showOderdetail($orderid)
     {
         $category = (new ProductModel)->getAllcategory();
-        $user_id = $_SESSION['user']['id']; 
+        $user_id = $_SESSION['user']['id'];
+
+        // Lấy chi tiết đơn hàng
         $orderDetails = $this->OrderModel->getOrderDetailsByOrderId($orderid);
+
+     
+
         include "view/header.php";
         include 'view/Order/odersdetail.php';
         include "view/footer.php";
     }
+
 }

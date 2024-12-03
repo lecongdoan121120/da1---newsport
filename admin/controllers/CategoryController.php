@@ -10,9 +10,8 @@ class CategoryController
     }
     public function list()
     {
-        // Lấy thông báo từ session và xóa nó sau khi hiển thị
-        $message = $_SESSION['mesage'] ?? '';  // Lấy thông báo, nếu có
-        unset($_SESSION['mesage']);  // Sau khi lấy xong, xóa thông báo khỏi session
+        $message = $_SESSION['mesage'] ?? ''; 
+        unset($_SESSION['mesage']);
 
         // Lấy tất cả danh mục từ cơ sở dữ liệu
         $data = new CategoryModel();
@@ -24,22 +23,34 @@ class CategoryController
 
     // Thêm danh mục mới
     public function add()
-    {    
+    {   
+
         include 'views/CategoryAdmin/addCategory.php';
         include 'views/sidebar.php';
         
     }
     public function store()
     {
-        $category = $_POST;
+        // Lấy dữ liệu từ form
+        if ($_SERVER['REQUEST_METHOD'] === 'POST' && isset($_POST['name'])) {
+            $name = $_POST['name'];
 
-        (new categoryModel)->add($category);
-        $category = $_POST;
-        // var_dump($data);
-        (new categoryModel)->add($category);
-        header("location: index.php?action=homeCategory");
-        die;
+            // Chuẩn bị mảng dữ liệu cho model
+            $data = [':name' => $name];
+
+            // Gọi hàm add của model
+            $categoryModel = new CategoryModel();
+            $categoryModel->add($data);
+
+            // Chuyển hướng sau khi thêm thành công
+            header("Location: index.php?action=homeCategory");
+            exit;
+        } else {
+            // Trường hợp không có dữ liệu hợp lệ
+            echo "Dữ liệu không hợp lệ!";
+        }
     }
+
 
     public function edit()
     {
@@ -52,7 +63,7 @@ class CategoryController
         $id = $_GET['id'];
         $category = (new CategoryModel)->find_One($id);
 
-
+        include 'views/sidebar.php';
         include 'views/CategoryAdmin/editCategory.php';
     }
 

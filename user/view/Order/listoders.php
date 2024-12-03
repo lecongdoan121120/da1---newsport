@@ -58,6 +58,18 @@
                                                     <a href="index.php?action=odersdetail&odersid=<?= $order['id'] ?>" class="tf-btn btn-fill animate-hover-btn rounded-0 justify-content-center">
                                                         <span>View</span>
                                                     </a>
+
+                                                    <?php if ($order['status'] !== 'Đang giao' && $order['status'] !== 'Đã giao'): ?>
+                                                        <form method="POST" action="<?= htmlspecialchars($_SERVER['REQUEST_URI']) ?>">
+                                                            <input type="hidden" name="order_id" value="<?= htmlspecialchars($order['id']) ?>">
+                                                            <input type="hidden" name="status" value="Hủy">
+                                                            <button type="submit" class="btn btn-danger" style="width:81px;height:42px;border-radius:0%;margin-top:5px">Hủy</button>
+                                                        </form>
+                                                    <?php else: ?>
+                                                        <p style="margin-top:10px;color:red">
+                                                            <?= $order['status'] === 'Đang giao' ? 'Đơn hàng đang được giao, không thể hủy!' : 'Đơn hàng đã giao, không thể hủy!' ?>
+                                                        </p>
+                                                    <?php endif; ?>
                                                 </td>
                                             </tr>
                                         <?php } ?>

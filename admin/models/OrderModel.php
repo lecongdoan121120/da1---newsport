@@ -14,6 +14,15 @@ class OrderModel
         $stmt->execute();
         return $stmt->fetchAll(PDO::FETCH_ASSOC);
     }
+    public function getOrderById($orderid)
+    {
+        $query = "SELECT * FROM oders WHERE id = :orderid";
+        $stmt = $this->conn->prepare($query);
+        $stmt->bindParam(':orderid', $orderid, PDO::PARAM_INT);
+        $stmt->execute();
+        return $stmt->fetch(PDO::FETCH_ASSOC);
+    }
+
     public function getOrderDetailsByOrderId($orderid)
     {
         $sql = "SELECT * FROM oders_detail WHERE oders_id = :oders_id";

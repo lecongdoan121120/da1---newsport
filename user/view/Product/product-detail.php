@@ -2,19 +2,19 @@
     <div class="tf-main-product section-image-zoom">
         <div class="container">
             <div class="row">
-                   <?php foreach ($product as $products)
-                                $discountedPrice = $products['price'] * (1 - $products['discount'] / 100); {  ?>
-                <div style="margin-top: 40px;" class="col-md-6" >
-                    <img src="../upload/<?= $products['thumbnail'] ?>" alt="">
-                </div>
-                <div class="col-md-6">
-                    <div class="tf-product-info-wrap position-relative">
-                        <div class="tf-zoom-main">
+                <?php foreach ($product as $products)
+                    $discountedPrice = $products['price'] * (1 - $products['discount'] / 100); {  ?>
+                    <div style="margin-top: 40px;" class="col-md-6">
+                        <img src="../upload/<?= $products['thumbnail'] ?>" alt="">
+                    </div>
+                    <div class="col-md-6">
+                        <div class="tf-product-info-wrap position-relative">
+                            <div class="tf-zoom-main">
 
-                        </div>
+                            </div>
 
-                        <div class="tf-product-info-list other-image-zoom">
-                           
+                            <div class="tf-product-info-list other-image-zoom">
+
                                 <div class="tf-product-info-title">
                                     <h5><?php echo $products['title'] ?></h5>
                                 </div>
@@ -31,6 +31,7 @@
                                                 <form action="index.php?action=addToCart" method="POST">
                                                     <input type="hidden" name="id" value="<?php echo $products['id'] ?>">
                                                     <input type="hidden" name="title" value="<?php echo $products['title'] ?>">
+                                                    <input type="hidden" name="thumbnail" value="<?php echo $products['thumbnail'] ?>">
                                                     <input type="hidden" name="price" value="<?php echo $products['price'] ?>">
                                                     <label style="margin-top: 12px;" for="quantity">Số lượng:</label>
                                                     <div class="quantity-selector">
@@ -64,9 +65,9 @@
                                         </div>
                                     </div>
                                 </div>
+                            </div>
                         </div>
                     </div>
-                </div>
             </div>
         </div>
     </div>

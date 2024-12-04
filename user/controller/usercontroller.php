@@ -1,32 +1,28 @@
 <?php
 require_once 'model/usermodel.php';
-require_once 'model/ProductModel.php';  
+require_once 'model/ProductModel.php';
 
 class UserController
 {
     private $UserModel;
 
-
-    function __construct()
+    public function __construct()
     {
         $this->UserModel = new UserModel();
     }
-    function register()
+    public function register()
     {
         $category = (new ProductModel)->getAllcategory();
         $error = $success = '';
         if ($_SERVER['REQUEST_METHOD'] == 'POST') {
-            $fullname = trim($_POST['fullname']);
-            $email = trim($_POST['email']);
-            $phone_number = trim($_POST['phone_number']);
-            $password = trim($_POST['password']);
-        if ($this->UserModel->check($fullname, $email, $phone_number)) {
+            $fullname = $_POST['fullname'];
+            $email = $_POST['email'];
+            $phone_number = $_POST['phone_number'];
+            $password = $_POST['password'];
+            if ($this->UserModel->check($fullname, $email, $phone_number)) {
                 $error = "Email, Số điện thoại hoặc Họ tên đã tồn tại. Vui lòng sử dụng thông tin khác!";
-        } else {
-
-        if ($this->UserModel->register($fullname, $email, $phone_number, $password)) {
-                    $success = "Đăng ký thành công!";
-        } else {
+            } else {
+                if ($this->UserModel->register($fullname, $email, $phone_number, $password)) {
                     $success = "Đăng ký thành công!";
                 }
             }
@@ -42,7 +38,7 @@ class UserController
             $email = $_POST['email'];
             $password = $_POST['password'];
             $user = $this->UserModel->getUserByEmail($email);
-        if ($user && $password === $user['password']) {
+            if ($user && $password === $user['password']) {
                 $_SESSION['user'] = [
                     'id' => $user['id'],
                     'email' => $user['email'],
@@ -52,8 +48,8 @@ class UserController
                     'password' => $user['password'],
                     'adress' => $user['adress'],
                 ];
-            header('Location:index.php');
-        } else {
+                header('Location:index.php');
+            } else {
                 $error = "Email hoặc mật khẩu sai!";
                 include "view/header.php";
                 include "view/User/login.php";

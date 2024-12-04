@@ -27,11 +27,11 @@
                                         <td>
                                             <div class="cart-info">
                                                 <a href="" class="cart-title link"></a>
-                                                <?= htmlspecialchars($item['title'] ?? 'Không xác định') ?>
+                                                <?= $item['title']?>
                                             </div>
                                         </td>
                                         <td>
-                                            <img src="<?= htmlspecialchars($item['thumbnail']) ?>"
+                                            <img src="<?= $item['thumbnail']?>"
                                                
                                                 style="width: 80px; height: auto; border-radius: 5px; margin-left:100px">
                                         </td>

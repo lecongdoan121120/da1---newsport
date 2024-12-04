@@ -50,18 +50,18 @@
                                     <tbody>
                                         <?php foreach ($orders as $order) { ?>
                                             <tr class="tf-order-item">
-                                                <td><?= htmlspecialchars($order['id'], ENT_QUOTES, 'UTF-8') ?></td>
-                                                <td><?= htmlspecialchars($order['oders_date'], ENT_QUOTES, 'UTF-8') ?></td>
-                                                <td><?= htmlspecialchars($order['status'], ENT_QUOTES, 'UTF-8') ?></td>
+                                                <td><?= $order['id'] ?></td>
+                                                <td><?= $order['oders_date'] ?></td>
+                                                <td><?= $order['status'] ?></td>
                                                 <td><?= number_format($order['total_money'], 0, ',', '.') ?> VND</td>
                                                 <td>
                                                     <a href="index.php?action=odersdetail&odersid=<?= $order['id'] ?>" class="tf-btn btn-fill animate-hover-btn rounded-0 justify-content-center">
-                                                        <span>View</span>
+                                                        <span>Xem</span>
                                                     </a>
 
                                                     <?php if ($order['status'] !== 'Đang giao' && $order['status'] !== 'Đã giao'): ?>
-                                                        <form method="POST" action="<?= htmlspecialchars($_SERVER['REQUEST_URI']) ?>">
-                                                            <input type="hidden" name="order_id" value="<?= htmlspecialchars($order['id']) ?>">
+                                                        <form method="POST" action="<?= ($_SERVER['REQUEST_URI']) ?>">
+                                                            <input type="hidden" name="order_id" value="<?= ($order['id']) ?>">
                                                             <input type="hidden" name="status" value="Hủy">
                                                             <button type="submit" class="btn btn-danger" style="width:81px;height:42px;border-radius:0%;margin-top:5px">Hủy</button>
                                                         </form>

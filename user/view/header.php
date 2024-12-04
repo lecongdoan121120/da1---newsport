@@ -2,7 +2,6 @@
 <html lang="en">
 
 <head>
-    <!-- LINK -->
     <link rel="stylesheet" href="public/fonts/font-icons.css">
     <link rel="stylesheet" href="public/fonts/fonts.css">
     <link rel="stylesheet" href="public/css/bootstrap.min.css">
@@ -14,23 +13,14 @@
     <link rel="stylesheet" href="public/css/image-compare-viewer.mincss" />
     <link rel="stylesheet" href="public/css/photoswipemin.css" />
     <link rel="stylesheet" href="public/css/swiper-bundle.min.css" />
-
-
-
     <title>Website</title>
-    <!-- LINK -->
 </head>
-
 <body class="preload-wrapper">
-
-    <!-- preload -->
     <div class="preload preload-container">
         <div class="preload-logo">
             <div class="spinner"></div>
         </div>
     </div>
-    <!-- /preload -->
-
     <div id="wrapper">
         <header id="header" class="header-default header-uppercase">
             <div class="px_15 lg-px_40">
@@ -81,7 +71,8 @@
 
                             ?>
                             <div class="dropdown show">
-                                <?php if (isset($_SESSION['user'])): ?>
+                                <?php if (isset($_SESSION['user'])):
+                                    var_dump($_SESSION['cart']) ?>
                                     <a class="" href="#" role="button" id="dropdownMenuLink" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
                                         <i class="icon icon-account"></i>
                                     </a>

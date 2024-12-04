@@ -1,6 +1,6 @@
 <?php
 require_once 'model/OrderModel.php';
-require_once 'model/ProductModel.php'; 
+require_once 'model/ProductModel.php';
 class OrderController
 {
     private $OrderModel;
@@ -11,14 +11,13 @@ class OrderController
     }
     public function checkout()
     {
-        $category =(new ProductModel)->getAllcategory();
+        $category = (new ProductModel)->getAllcategory();
         if (!isset($_SESSION['user'])) {
             include "view/header.php";
             include "view/User/login.php";
-            include "view/footer.php";  
+            include "view/footer.php";
             exit;
         }
-
         if (empty($_SESSION['cart'])) {
             echo "Giỏ hàng của bạn đang trống!";
             return;
@@ -43,8 +42,8 @@ class OrderController
                 },
                 0
             );
-            date_default_timezone_set('Asia/Ho_Chi_Minh'); // Thiết lập múi giờ Việt Nam
-            $orders_date = date('Y-m-d H:i:s'); // Lấy thời gian hiện tại theo định dạng
+            date_default_timezone_set('Asia/Ho_Chi_Minh');
+            $orders_date = date('Y-m-d H:i:s');
             $status = 'Chờ xác nhận';
             $order_id = $this->OrderModel->CreateOrder(
                 $user_id,
@@ -62,19 +61,18 @@ class OrderController
                 $this->OrderModel->CreateOrderDetail(
                     $order_id,
                     $item['title'],
-                    $item['thumbnail'],       // Tên sản phẩm
-                    $item['price'],      // Giá sản phẩm
+                    $item['thumbnail'],
+                    $item['price'],
                     $item['quantity'],
-                  // Số lượng sản phẩm
+
                 );
             }
 
-            // Xóa giỏ hàng và đặt lại total
-            unset($_SESSION['cart']); // Xóa giỏ hàng
-            $_SESSION['total'] = 0;   // Đặt total về 0
+
+            unset($_SESSION['cart']);
+            $_SESSION['total'] = 0;
         }
 
-        // Chuyển đến trang thông báo thành công
         include 'view/Order/paysucess.php';
     }
 
@@ -88,7 +86,7 @@ class OrderController
 
             $this->OrderModel->updateOrderStatus($order_id, $status);
 
-          
+
             header("Location: " . $_SERVER['REQUEST_URI']);
             exit;
         }
@@ -107,14 +105,10 @@ class OrderController
         $category = (new ProductModel)->getAllcategory();
         $user_id = $_SESSION['user']['id'];
 
-        // Lấy chi tiết đơn hàng
         $orderDetails = $this->OrderModel->getOrderDetailsByOrderId($orderid);
-
-     
 
         include "view/header.php";
         include 'view/Order/odersdetail.php';
         include "view/footer.php";
     }
-
 }

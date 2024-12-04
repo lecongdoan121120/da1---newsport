@@ -7,15 +7,16 @@ class ProductController
 
     public function __construct()
     {
-        $this->ProductModel= new ProductModel();
+        $this->ProductModel = new ProductModel();
     }
-    public function contact(){
+    public function contact()
+    {
         $category = $this->ProductModel->getAllcategory();
         include 'view/header.php';
         include 'view/contact.php';
         include 'view/footer.php';
     }
-    public function about ()
+    public function about()
     {
         $category = $this->ProductModel->getAllcategory();
         include 'view/header.php';
@@ -49,7 +50,7 @@ class ProductController
         include 'view/Product/product-detail.php';
         include 'view/footer.php';
     }
-   public function productCategory($id)
+    public function productCategory($id)
     {
         $productcategory = $this->ProductModel->getProductcategory($id);
         $category = $this->ProductModel->getAllcategory();
@@ -59,28 +60,24 @@ class ProductController
         include 'view/footer.php';
     }
 
-    function product()
+    public  function product()
     {
-        // Lấy danh mục và sản phẩm
         $category = $this->ProductModel->getAllcategory();
-        // Cấu hình phân trang
+
         $itemsPerPage = 12;
         $currentPage = isset($_GET['page']) ? (int)$_GET['page'] : 1;
         $offset = ($currentPage - 1) * $itemsPerPage;
 
-        // Lấy dữ liệu
         $products = $this->ProductModel->getProducts($itemsPerPage, $offset);
         $totalProducts = $this->ProductModel->getTotalProducts();
         $totalPages = ceil($totalProducts / $itemsPerPage);
 
-
-        // Bao gồm các view cần thiết
         include 'view/header.php';
         include 'view/Product/product.php';
         include 'view/footer.php';
     }
-    
-    function search()
+
+    public function search()
     {
         if (isset($_POST['keyword'])) {
             $keyword = $_POST['keyword'];
@@ -92,7 +89,6 @@ class ProductController
         include 'view/Product/search.php';
         include 'view/footer.php';
     }
-
     public function addComment()
     {
         if (!isset($_SESSION['user']) || empty($_SESSION['user']['id'])) {
@@ -103,21 +99,15 @@ class ProductController
 
         if ($_SERVER['REQUEST_METHOD'] === 'POST') {
             $id_user = $_SESSION['user']['id'];
-            $id_product = $_POST['id_product'] ?? null; 
-            $content_comment = $_POST['content_comment'] ?? null; 
+            $id_product = $_POST['id_product'] ?? null;
+            $content_comment = $_POST['content_comment'] ?? null;
+            $addcomment = $this->ProductModel->addComment($id_user, $id_product, $content_comment);
+            if ($addcomment) {
 
-        if (!$id_product || !$content_comment) {
-                echo "Thiếu dữ liệu, vui lòng thử lại!";
-                return;
-            }
-
-            $isAdded = $this->ProductModel->addComment($id_user, $id_product, $content_comment);
-        if ($isAdded) {
-                echo "Bình luận đã được thêm thành công!";
                 $uri = $_SESSION['URI'];
                 header('Location:' . $uri);
                 exit;
-     } else {
+            } else {
                 echo "Có lỗi xảy ra, vui lòng thử lại.";
             }
         }

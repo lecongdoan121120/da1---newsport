@@ -23,15 +23,15 @@
                        <h5 class="fw-5 mb_20">Thông tin thanh toán</h5>
                        <fieldset class="fieldset">
                            <label for="last-name">Họ tên</label>
-                           <input type="text" name="fullname" value="<?= htmlspecialchars($user['fullname']) ?>" required>
+                           <input type="text" name="fullname" value="<?= $user['fullname'] ?>" required>
                        </fieldset>
                        <fieldset class="box fieldset">
                            <label for="address">Email</label>
-                           <input type="email" name="email" value="<?= htmlspecialchars($user['email']) ?>" readonly>
+                           <input type="email" name="email" value="<?= $user['email'] ?>" readonly>
                        </fieldset>
                        <fieldset class="box fieldset">
                            <label for="phone">Số điện thoại</label>
-                           <input type="text" name="phone_number" value="<?= htmlspecialchars($user['phone_number']) ?>" required>
+                           <input type="text" name="phone_number" value="<?= $user['phone_number']?>" required>
                        </fieldset>
                        <fieldset class="box fieldset">
                            <label for="adress">Địa chỉ</label>
@@ -60,7 +60,7 @@
                                        <tr class="tf-cart-item file-delete">
                                            <td class="tf-cart-item_product">
                                                <div class="cart-info">
-                                                   <?= htmlspecialchars($item['title'] ?? 'Không xác định') ?>
+                                                   <?= $item['title'] ?>
                                                </div>
                                            </td>
                                            <td class="tf-cart-item_price" cart-data-title="Price">

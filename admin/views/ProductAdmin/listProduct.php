@@ -20,6 +20,7 @@
                                                         <th>Giá</th>
                                                         <th>Giảm giá</th>
                                                         <th>Trạng thái</th>
+                                                        <th>Số lượng</th>
                                                         <th>Hành động</th>
                                                     </tr>
                                                 </thead>
@@ -34,11 +35,12 @@
                                                             </td>
                                                             <td><?= $product['title'] ?></td>
                                                             <td><?= $product['category_id'] ?></td>
-                                                            <td><?= $product['price'] ?></td>
-                                                            <td class="td-price"><?= $product['discount'] ?></td>
+                                                            <td><?php echo number_format($product['price'], 0, ',', '.'); ?>₫</td>
+                                                            <td class="td-price"><?= $product['discount'] ?>%</td>
                                                             <td style="background-color: <?= $product['status'] == "Đang kinh doanh" ? '#d4edda' : '#f8d7da' ?>; color: <?= $product['status'] == "Đang kinh doanh" ? '#155724' : '#721c24' ?>;">
                                                                 <span><?= $product['status'] == "Đang kinh doanh" ? 'Đang kinh doanh' : 'Ngừng kinh doanh' ?></span>
                                                             </td>
+                                                            <td><?= $product['stock'] ?></td>
                                                             <td>
                                                                 <ul>
                                                                     <li>

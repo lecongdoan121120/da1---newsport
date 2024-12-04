@@ -29,8 +29,8 @@
                                        <th scope="row"><?= ($detail['id']) ?></th>
                                        <td><?= ($detail['product_name']) ?></td>
                                        <td>
-                                           <img src="<?= htmlspecialchars($detail['product_thumbnail']) ?>"
-                                               alt="<?= htmlspecialchars($detail['product_name']) ?>"
+                                           <img src="<?= ($detail['product_thumbnail']) ?>"
+                                               alt="<?= ($detail['product_name']) ?>"
                                                style="width: 80px; height: auto; border-radius: 5px;">
                                        </td>
                                        <td><?= ($detail['price']) ?> VND</td>

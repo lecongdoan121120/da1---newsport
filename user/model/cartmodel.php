@@ -8,7 +8,7 @@ class CartModel
             $_SESSION['cart'] = [];
         }
         $this->cart = $_SESSION['cart'];
-        
+
         $_SESSION['total'] = $this->getTotalQuantity();
     }
 
@@ -30,7 +30,6 @@ class CartModel
     {
         return $this->cart;
     }
-
     public function getTotalPrice()
     {
         $total = 0;
@@ -43,23 +42,21 @@ class CartModel
 
     public function getTotalQuantity()
     {
-        $carts = $_SESSION['cart'] ?? []; // Lấy giỏ hàng từ session
+        $carts = $_SESSION['cart'] ?? [];
         $totalQuantity = 0;
 
         foreach ($carts as $cart) {
-            $totalQuantity += $cart['quantity']; // Cộng dồn số lượng
+            $totalQuantity += $cart['quantity'];
         }
         return $totalQuantity;
     }
 
     public function updateCartQuantities($quantities)
     {
-        // Lặp qua các sản phẩm và cập nhật số lượng trong giỏ hàng
         foreach ($quantities as $id => $qty) {
             if (isset($_SESSION['cart'][$id])) {
                 $_SESSION['cart'][$id]['quantity'] = $qty;
             }
         }
     }
-    
 }

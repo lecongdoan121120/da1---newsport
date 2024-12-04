@@ -62,6 +62,13 @@
                                             <input name="discount" class="form-control" type="number" value="<?= $product['discount'] ?>">
                                         </div>
                                     </div>
+                                    <div class="mb-4 row align-items-center">
+                                        <label for="discount" class="col-sm-3 form-label-title">Số lượng
+                                        </label>
+                                        <div class="col-sm-9">
+                                            <input name="stock" class="form-control" type="number" value="<?= $product['stock'] ?>">
+                                        </div>
+                                    </div>
                             </div>
                             <label for="status">Trạng Thái:</label><br><br>
                             <select name="status" id="status">

@@ -59,6 +59,12 @@
                                             <input name="discount" class="form-control" type="number" placeholder="0">
                                         </div>
                                     </div>
+                                    <div class="mb-4 row align-items-center">
+                                        <label for="price" class="col-sm-3 form-label-title">Số lượng</label>
+                                        <div class="col-sm-9">
+                                            <input name="stock" class="form-control" type="number" placeholder="0">
+                                        </div>
+                                    </div>
                                     <label for="status">Trạng Thái:</label><br><br>
                                     <select name="status" id="status">
                                         <option value="Đang kinh doanh" selected>Đang kinh doanh</option>
@@ -66,7 +72,7 @@
                                     </select>
                                     <br><br>
                                     <button type="submit" class="btn btn-primary btn-sm mt-2">Thêm mới</button>
-                                    
+
                                 </form>
                             </div>
                         </div>

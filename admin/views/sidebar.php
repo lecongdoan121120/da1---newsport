@@ -1,5 +1,6 @@
 <!DOCTYPE html>
 <html lang="en" dir="ltr">
+
 <head>
     <meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
@@ -24,7 +25,8 @@
     <link rel="stylesheet" href="<?= BASE_URL ?>/admin/public/css/vendors/slick.css">
     <link rel="stylesheet" type="text/css" href="<?= BASE_URL ?>/admin/public/css/style.css">
 </head>
-<body> 
+
+<body>
     <div class="tap-top">
         <span class="lnr lnr-chevron-up"></span>
     </div>
@@ -32,7 +34,7 @@
         <div class="page-header">
             <div class="header-wrapper m-0">
                 <div class="nav-right col-6 pull-right right-header p-0">
-                   <ul class="nav-menus">
+                    <ul class="nav-menus">
                         <li>
                             <div class="mode">
                                 <i class="ri-moon-line"></i>
@@ -66,8 +68,8 @@
                                     </a>
                                 </li>
                                 <li>
-                                    <a data-bs-toggle="modal" data-bs-target="#staticBackdrop"
-                                        href="javascript:void(0)">
+                                    <a 
+                                        href="http://localhost:8080/duan1/user/index.php">
                                         <i data-feather="log-out"></i>
                                         <span>Log out</span>
                                     </a>
@@ -154,7 +156,7 @@
                                         <li>
                                             <a href="?action=listorder">Danh sách đơn hàng</a>
                                         </li>
-                                      
+
                                     </ul>
                                 </li>
                                 <li class="sidebar-list">
@@ -196,4 +198,5 @@
     <script src="<?= BASE_URL ?>/admin/public/js/sidebareffect.js"></script>
     <script src="<?= BASE_URL ?>/admin/public/js/script.js"></script>
 </body>
+
 </html>

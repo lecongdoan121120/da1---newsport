@@ -4,24 +4,23 @@
             <div class="row">
                 <?php foreach ($product as $products)
                     $discountedPrice = $products['price'] * (1 - $products['discount'] / 100); {  ?>
-                    <div style="margin-top: 40px;" class="col-md-6">
+                    <div class="col-md-6">
                         <img src="../upload/<?= $products['thumbnail'] ?>" alt="">
                     </div>
                     <div class="col-md-6">
                         <div class="tf-product-info-wrap position-relative">
                             <div class="tf-zoom-main">
-
                             </div>
-
                             <div class="tf-product-info-list other-image-zoom">
 
                                 <div class="tf-product-info-title">
                                     <h5><?php echo $products['title'] ?></h5>
                                 </div>
                                 <div class="tf-product-info-price">
-                                    <del class="price-on-sale"><?php echo $products['price'] ?></del>
-                                    <div class=""><?php echo $discountedPrice ?></div>
-                                    <div class="badges--sale"><span><?php echo $products['discount'] ?></span>%</div>
+                                    <del class="price"><?php echo number_format($products['price'], 0, ',', '.'); ?>₫</del>
+                                    <p style="color: red;" class="price">
+                                        <?php echo number_format($discountedPrice, 0, ',', '.'); ?>₫
+                                    </p>
                                 <?php          }   ?>
                                 </div>
                                 <div class="tf-product-info-buy-button">
@@ -111,8 +110,8 @@
 
                                     <?php foreach ($comments as $comment) { ?>
                                         <div class="comment">
-                                            <p><strong>Người dùng ID <?= $comment['id'] ?>:</strong></p>
-                                            <p>Bình luận: <?= htmlspecialchars($comment['content_comment']) ?></p>
+                                            <p><strong>Người dùng ID <?= $comment['id_product'] ?>:</strong></p>
+                                            <p>Bình luận: <?= $comment['content_comment'] ?></p>
                                             <p><small>Ngày: <?= $comment['date_comment'] ?></small></p>
                                         </div>
                                         <hr>
@@ -133,7 +132,7 @@
                                     </div>
                                     <div class="form-content">
                                         <!-- Hidden input để gửi ID sản phẩm -->
-                                        <input type="hidden" name="id_product" value="<?= htmlspecialchars($id_product) ?>">
+                                        <input type="hidden" name="id_product" value="<?= $id_product ?>">
                                         <!-- Label và textarea cho bình luận -->
                                         <label class="label" for="content_comment">Đánh giá</label>
                                         <textarea id="comment" name="content_comment" rows="4" placeholder="Write your comment here" tabindex="2" aria-required="true" required></textarea>
@@ -170,7 +169,8 @@
 
                             <div class="card-product">
                                 <div class="card-product-info">
-                                    <div style="display: flex; gap:9px">
+                                    <div >
+                                        <img src="<?= $loadProductcategory['thumbnail'] ?>" alt="">
                                         <del class="price"><?php echo number_format($loadProductcategory['price'], 0, ',', '.'); ?>₫</del>
                                         <p style="color: red;" class="price">
                                             <?php echo number_format($discountedPrice, 0, ',', '.'); ?>₫

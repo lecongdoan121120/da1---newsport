@@ -33,8 +33,7 @@
                                                                  </li>
 
                                                                  <li>
-                                                                     <a href=" index.php?action=deleteCategory&id=<?= $category['id'] ?>" data-bs-toggle="modal"
-                                                                         data-bs-target="#exampleModalToggle">
+                                                                     <a href=" index.php?action=deleteCategory&id=<?= $category['id'] ?>">
                                                                          <i class="ri-delete-bin-line"></i>
                                                                      </a>
                                                                  </li>

@@ -15,7 +15,7 @@
                        <table class="table table-striped">
                            <thead>
                                <tr>
-                                   <th scope="col">Id</th>
+                                   <th scope="col">#</th>
                                    <th scope="col">Sản phẩm</th>
                                    <th scope="col">Ảnh</th>
                                    <th scope="col">Giá</th>

@@ -6,8 +6,6 @@ class ProductController
     {
         $products = new ProductModel();
         $data = $products->all();
-        $status = "
-        1 => Đang kinh doanh";
         include 'views/sidebar.php';
         include 'views/ProductAdmin/listProduct.php';
     }

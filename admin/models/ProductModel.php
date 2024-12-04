@@ -25,7 +25,7 @@ class ProductModel
 
     public function update($data, $id)
     {
-        $sql = "UPDATE product SET category_id=:category_id, title=:title, price=:price, discount=:discount, thumbnail=:thumbnail, description=:description, status=:status WHERE id=:id";
+        $sql = "UPDATE product SET category_id=:category_id, title=:title, price=:price, discount=:discount, thumbnail=:thumbnail, description=:description, status=:status ,stock = :stock WHERE id=:id";
         $stmt = $this->conn->prepare($sql);
         // var_dump($data);
         $data['id'] = $id;

@@ -66,13 +66,10 @@
                         <ul class="nav-icon d-flex justify-content-end align-items-center gap-20">
                             <li class="nav-search"><a href="#canvasSearch" data-bs-toggle="offcanvas" aria-controls="offcanvasLeft" class="nav-icon-item"><i class="icon icon-search"></i></a></li>
                             <?php
-
                             $role = isset($_SESSION['user']['role']) ? $_SESSION['user']['role'] : 2;
-
                             ?>
                             <div class="dropdown show">
-                                <?php if (isset($_SESSION['user'])):
-                                    var_dump($_SESSION['cart']) ?>
+                                <?php if (isset($_SESSION['user'])): ?>
                                     <a class="" href="#" role="button" id="dropdownMenuLink" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
                                         <i class="icon icon-account"></i>
                                     </a>

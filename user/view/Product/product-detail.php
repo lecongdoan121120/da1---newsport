@@ -27,19 +27,24 @@
                                     <div class="selector-actions">
                                         <div class="wrap-addcart clearfix">
                                             <div class="row-flex">
-                                                <form action="index.php?action=addToCart" method="POST">
-                                                    <input type="hidden" name="id" value="<?php echo $products['id'] ?>">
-                                                    <input type="hidden" name="title" value="<?php echo $products['title'] ?>">
-                                                    <input type="hidden" name="thumbnail" value="<?php echo $products['thumbnail'] ?>">
-                                                    <input type="hidden" name="price" value="<?php echo $products['price'] ?>">
-                                                    <label style="margin-top: 12px;" for="quantity">Số lượng:</label>
-                                                    <div class="quantity-selector">
-                                                        <button class="quantity-button" type="button" onclick="decreaseQuantity()">-</button>
-                                                        <input type="number" id="quantity" name="quantity" value="1" min="1" readonly>
-                                                        <button class="quantity-button" type="button" onclick="increaseQuantity()">+</button>
-                                                    </div>
-                                                    <button class="add-to-cart-button" type="submit">Thêm vào giỏ hàng</button>
-                                                </form>
+                                                <?php if ($products['stock'] > 0): ?>
+                                                    <form action="index.php?action=addToCart" method="POST">
+                                                        <input type="hidden" name="id" value="<?php echo $products['id'] ?>">
+                                                        <input type="hidden" name="title" value="<?php echo $products['title'] ?>">
+                                                        <input type="hidden" name="thumbnail" value="<?php echo $products['thumbnail'] ?>">
+                                                        <input type="hidden" name="price" value="<?php echo $products['price'] ?>">
+                                                        <label style="margin-top: 12px;" for="quantity">Số lượng:</label>
+                                                        <div class="quantity-selector">
+                                                            <button class="quantity-button" type="button" onclick="decreaseQuantity()">-</button>
+                                                            <input type="number" id="quantity" name="quantity" value="1" min="1" readonly>
+                                                            <button class="quantity-button" type="button" onclick="increaseQuantity()">+</button>
+                                                        </div>
+                                                        <button class="add-to-cart-button" type="submit">Thêm vào giỏ hàng</button>
+                                                    </form>
+                                                <?php else: ?>
+                                                    <p style="color: red; font-weight: bold;">Hết hàng</p>
+                                                <?php endif; ?>
+
                                             </div>
                                         </div>
                                     </div>
@@ -106,34 +111,23 @@
                                     </div>
                                 </div>
                                 <div class="reply-comment cancel-review-wrap">
-                                    <!-- Danh sách bình luận -->
-
                                     <?php foreach ($comments as $comment) { ?>
                                         <div class="comment">
-                                            <p><strong>Người dùng ID <?= $comment['id_product'] ?>:</strong></p>
+                                            <p><strong>Người dùng : <?= $comment['fullname'] ?></strong></p>
                                             <p>Bình luận: <?= $comment['content_comment'] ?></p>
                                             <p><small>Ngày: <?= $comment['date_comment'] ?></small></p>
                                         </div>
                                         <hr>
                                     <?php     } ?>
                                 </div>
-                                <?php
-                                if (isset($_GET['id'], $_GET['category_id'])) {
-                                    $id_product = $_GET['id']; // Lấy ID sản phẩm từ URL
 
-                                } else {
-                                    echo "Không tìm thấy sản phẩm.";
-                                    exit;
-                                }
-                                ?>
                                 <form class="form-write-review write-review-wrap" method="POST" action="?action=comment">
                                     <div class="heading">
                                         <h5>Viết bình luận :</h5>
                                     </div>
                                     <div class="form-content">
-                                        <!-- Hidden input để gửi ID sản phẩm -->
+
                                         <input type="hidden" name="id_product" value="<?= $id_product ?>">
-                                        <!-- Label và textarea cho bình luận -->
                                         <label class="label" for="content_comment">Đánh giá</label>
                                         <textarea id="comment" name="content_comment" rows="4" placeholder="Write your comment here" tabindex="2" aria-required="true" required></textarea>
                                     </div>
@@ -141,8 +135,6 @@
                                         <button class="tf-btn btn-fill animate-hover-btn" type="submit">Gửi</button>
                                     </div>
                                 </form>
-
-                                <!-- <form class="form-write-review write-review-wrap"> -->
                             </div>
                         </div>
                     </div>
@@ -161,7 +153,7 @@
             <div dir="ltr" class="swiper tf-sw-product-sell wrap-sw-over" data-preview="4" data-tablet="3" data-mobile="2" data-space-lg="30" data-space-md="15" data-pagination="2" data-pagination-md="3" data-pagination-lg="3">
                 <div class="swiper-wrapper">
                     <?php foreach ($loadProductcategorys as $loadProductcategory) {
-                        // Tính toán giá sau khi giảm
+
                         $discountedPrice = $loadProductcategory['price'] * (1 - $loadProductcategory['discount'] / 100);
 
                     ?>
@@ -169,7 +161,7 @@
 
                             <div class="card-product">
                                 <div class="card-product-info">
-                                    <div >
+                                    <div>
                                         <img src="<?= $loadProductcategory['thumbnail'] ?>" alt="">
                                         <del class="price"><?php echo number_format($loadProductcategory['price'], 0, ',', '.'); ?>₫</del>
                                         <p style="color: red;" class="price">

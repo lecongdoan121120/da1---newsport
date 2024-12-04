@@ -23,11 +23,26 @@ class OrderModel
         return $stmt->fetch(PDO::FETCH_ASSOC);
     }
 
-    public function getOrderDetailsByOrderId($orderid)
+    public function getOrderDetailsByOrderId($orderId)
     {
-        $sql = "SELECT * FROM oders_detail WHERE oders_id = :oders_id";
+        $sql = "
+        SELECT 
+            oders_detail.id, 
+            oders_detail.quantity, 
+             oders_detail.price, 
+            product.title AS product_name, 
+            product.thumbnail AS product_thumbnail
+        FROM 
+            oders_detail
+        JOIN 
+            product
+        ON 
+            oders_detail.product_id = product.id
+        WHERE 
+            oders_detail.oders_id = :oders_id
+    ";
         $stmt = $this->conn->prepare($sql);
-        $stmt->bindParam(':oders_id', $orderid, PDO::PARAM_INT);
+        $stmt->bindParam(':oders_id', $orderId, PDO::PARAM_INT);
         $stmt->execute();
         return $stmt->fetchAll(PDO::FETCH_ASSOC);
     }

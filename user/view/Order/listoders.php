@@ -66,9 +66,7 @@
                                                             <button type="submit" class="btn btn-danger" style="width:81px;height:42px;border-radius:0%;margin-top:5px">Hủy</button>
                                                         </form>
                                                     <?php else: ?>
-                                                        <p style="margin-top:10px;color:red">
-                                                            <?= $order['status'] === 'Đang giao' ? 'Đơn hàng đang được giao, không thể hủy!' : 'Đơn hàng đã giao, không thể hủy!' ?>
-                                                        </p>
+                                                       
                                                     <?php endif; ?>
                                                 </td>
                                             </tr>

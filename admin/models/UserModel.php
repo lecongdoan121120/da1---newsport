@@ -46,13 +46,6 @@ class UserModel
         $stmt->bindParam(':role', $role);
         $stmt->bindParam(':adress', $adress);
         $stmt->bindParam(':id', $id);
-
-        if (!$stmt->execute()) {
-            // Hiển thị lỗi chi tiết từ PDO
-            print_r($stmt->errorInfo());
-            return false;
-        }
-        return true;
     }
     public function getUserById($id)
     {
@@ -62,7 +55,4 @@ class UserModel
         $stmt->execute();
         return $stmt->fetch(PDO::FETCH_ASSOC);
     }
-
-
-
 }

@@ -37,9 +37,38 @@
                                                             <td><?= $product['category_id'] ?></td>
                                                             <td><?php echo number_format($product['price'], 0, ',', '.'); ?>₫</td>
                                                             <td class="td-price"><?= $product['discount'] ?>%</td>
-                                                            <td style="background-color: <?= $product['status'] == "Đang kinh doanh" ? '#d4edda' : '#f8d7da' ?>; color: <?= $product['status'] == "Đang kinh doanh" ? '#155724' : '#721c24' ?>;">
-                                                                <span><?= $product['status'] == "Đang kinh doanh" ? 'Đang kinh doanh' : 'Ngừng kinh doanh' ?></span>
+                                                            <td style="background-color: 
+                                                          <?php
+                                                        if ($product['status'] == "Đang kinh doanh" && $product['stock'] > 0) {
+                                                            echo '#d4edda'; 
+                                                        } elseif ($product['status'] == "Đang kinh doanh" && $product['stock'] == 0) {
+                                                            echo '#fff3cd'; 
+                                                        } else {
+                                                            echo '#f8d7da'; 
+                                                        }
+                                                           ?>;color: 
+                                                         <?php
+                                                        if ($product['status'] == "Đang kinh doanh" && $product['stock'] > 0) {
+                                                            echo '#155724';
+                                                        } elseif ($product['status'] == "Đang kinh doanh" && $product['stock'] == 0) {
+                                                            echo '#856404';
+                                                        } else {
+                                                            echo '#721c24'; 
+                                                        }
+                                                         ?>;">
+                                                                <span>
+                                                                    <?php
+                                                                    if ($product['status'] == "Đang kinh doanh" && $product['stock'] > 0) {
+                                                                        echo 'Đang kinh doanh';
+                                                                    } elseif ($product['status'] == "Đang kinh doanh" && $product['stock'] == 0) {
+                                                                        echo 'Hết hàng';
+                                                                    } else {
+                                                                        echo 'Ngừng kinh doanh';
+                                                                    }
+                                                                    ?>
+                                                                </span>
                                                             </td>
+
                                                             <td><?= $product['stock'] ?></td>
                                                             <td>
                                                                 <ul>

@@ -18,6 +18,7 @@ class CartModel
             $this->cart[$id]['quantity'] += $quantity;
         } else {
             $this->cart[$id] = [
+                'id' => $id,
                 'title' => $title,
                 'thumbnail' => $thumbnail,
                 'price' => $price,

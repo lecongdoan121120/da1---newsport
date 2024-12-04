@@ -56,7 +56,7 @@ switch ($action) {
     $OrderController->pay();
     break;
   case 'listoders':
-    $OrderController->listoder();
+    $OrderController->listorder();
     break;
   case 'odersdetail':
     $OrderController->showOderdetail($_GET['odersid']);

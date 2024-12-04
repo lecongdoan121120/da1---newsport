@@ -23,13 +23,12 @@ class OrderModel
         $stmt->execute();
         return $this->conn->lastInsertId();
     }
-    public function createOrderDetail($oders_id, $product_name, $product_thumbnail, $price, $quantity)
+    public function createOrderDetail($oders_id, $product_id ,  $price, $quantity)
     {
-        $sql = "INSERT INTO oders_detail (oders_id, product_name, product_thumbnail, price, quantity) VALUES (:oders_id,:product_name , :product_thumbnail, :price, :quantity)";
+        $sql = "INSERT INTO oders_detail (oders_id, product_id,  price, quantity) VALUES (:oders_id, :product_id, :price, :quantity)";
         $stmt = $this->conn->prepare($sql);
         $stmt->bindParam(':oders_id', $oders_id);
-        $stmt->bindParam(':product_name', $product_name);
-        $stmt->bindParam(':product_thumbnail', $product_thumbnail);
+        $stmt->bindParam(':product_id', $product_id);
         $stmt->bindParam(':price', $price);
         $stmt->bindParam(':quantity', $quantity);
         $stmt->execute();
@@ -42,14 +41,32 @@ class OrderModel
         $stmt->execute();
         return $stmt->fetchAll(PDO::FETCH_ASSOC);
     }
-    public function getOrderDetailsByOrderId($orderid)
+ 
+    public function getOrderDetailsByOrderId($orderId)
     {
-        $sql = "SELECT * FROM oders_detail WHERE oders_id = :oders_id";
+        $sql = "
+        SELECT 
+            oders_detail.id, 
+            oders_detail.quantity, 
+             oders_detail.price, 
+            product.title AS product_name, 
+            product.thumbnail AS product_thumbnail
+        FROM 
+            oders_detail
+        JOIN 
+            product
+        ON 
+            oders_detail.product_id = product.id
+        WHERE 
+            oders_detail.oders_id = :oders_id
+    ";
         $stmt = $this->conn->prepare($sql);
-        $stmt->bindParam(':oders_id', $orderid, PDO::PARAM_INT);
+        $stmt->bindParam(':oders_id', $orderId, PDO::PARAM_INT);
         $stmt->execute();
         return $stmt->fetchAll(PDO::FETCH_ASSOC);
     }
+
+
   
     public function updateOrderStatus($id, $status)
     {

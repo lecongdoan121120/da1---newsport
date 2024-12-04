@@ -10,6 +10,7 @@ class CommentController
     }
     public function getcomment()
     {
+     
         $comments = $this->model->getAllComments();
         include 'views/sidebar.php';
         include 'views/CommentAdmin/comment.php';

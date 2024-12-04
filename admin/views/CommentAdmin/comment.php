@@ -7,7 +7,7 @@
                           <div class="card card-table">
                               <div class="card-body">
                                   <div class="title-header option-title d-sm-flex d-block">
-                                      <h5>Danh sách sản phẩm</h5>
+                                      <h5>Danh sách bình luận</h5>
 
                                   </div>
                                   <div>
@@ -16,8 +16,8 @@
                                               <thead>
                                                   <tr>
                                                       <th>#</th>
-                                                      <th>Id khách hàng</th>
-                                                      <th>Id sản phẩm</th>
+                                                      <th>Người bình luận</th>
+                                                      <th>Tên sản phẩm</th>
                                                       <th>Nội dung</th>
                                                       <th>Ngày bình luận</th>
                                                       <th>Hành động</th>        
@@ -29,8 +29,8 @@
                                                           <td>
                                                               <?= $comment['id'] ?>
                                                           </td>
-                                                          <td> <?= $comment['id_user'] ?></td>
-                                                          <td> <?= $comment['id_product'] ?></td>
+                                                          <td> <?= $comment['fullname'] ?></td>
+                                                          <td> <?= $comment['title'] ?></td>
                                                           <td><?= $comment['content_comment'] ?></td>
                                                           <td><?= $comment['date_comment'] ?></td>
                                                           <td>

@@ -58,11 +58,11 @@ class ProductModel
   }
   public function searchProduct($keyword)
   {
-    $sql = "SELECT * FROM product WHERE title LIKE :keyword"; // Không để thừa hoặc thiếu dấu nháy
+    $sql = "SELECT * FROM product WHERE title LIKE :keyword";
     $stmt = $this->conn->prepare($sql);
-    $stmt->bindValue(':keyword', '%' . $keyword . '%', PDO::PARAM_STR); // Gắn tham số đúng
-    $stmt->execute(); // Thực thi câu lệnh
-    return $stmt->fetchAll(PDO::FETCH_ASSOC); // Trả về kết quả
+    $stmt->bindValue(':keyword', '%' . $keyword . '%', PDO::PARAM_STR);
+    $stmt->execute();
+    return $stmt->fetchAll(PDO::FETCH_ASSOC);
   }
   public function getProducts($limit, $offset)
   {
@@ -93,8 +93,34 @@ class ProductModel
   }
   public function getCommentsByProduct($id_product)
   {
-    $stmt = $this->conn->prepare("SELECT * FROM comment WHERE id_product = ? ORDER BY date_comment   DESC");
+    $stmt = $this->conn->prepare("
+        SELECT 
+            comment.*, 
+            user.fullname 
+        FROM 
+            comment 
+        JOIN 
+            user ON comment.id_user = user.id
+        WHERE 
+            comment.id_product = ? 
+        ORDER BY 
+            comment.date_comment DESC
+    ");
     $stmt->execute([$id_product]);
     return $stmt->fetchAll(PDO::FETCH_ASSOC);
   }
+  public function getStock($productId)
+  {
+    $stmt = $this->conn->prepare("SELECT stock FROM product WHERE id = :id");
+    $stmt->execute(['id' => $productId]);
+    return $stmt->fetch(PDO::FETCH_ASSOC);
+  }
+
+  
+  public function updateStock($productId, $newStock)
+  {
+    $stmt = $this->conn->prepare("UPDATE product SET stock = :stock WHERE id = :id");
+    return $stmt->execute(['stock' => $newStock, 'id' => $productId]);
+  }
+
 }

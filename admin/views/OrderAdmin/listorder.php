@@ -20,6 +20,7 @@
                                                     <th>Phương thức thanh toán</th>
                                                     <th>Tổng tiền</th>
                                                     <th>Ghi chú</th>
+                                                    <th>Trạng thái</th>
                                                     <th>Ngày đặt hàng</th>
                                                     <th>Hành động</th>
                                                 </tr>
@@ -27,13 +28,14 @@
                                             <tbody>
                                                 <?php foreach ($orders as $order): ?>
                                                     <tr>
-                                                        <td><?= htmlspecialchars($order['id']) ?></td>
-                                                        <td><?= htmlspecialchars($order['fullname']) ?></td>
-                                                        <td><?= htmlspecialchars($order['phone_number']) ?></td>
-                                                        <td><?= htmlspecialchars($order['Payment']) ?></td>
+                                                        <td><?= $order['id'] ?></td>
+                                                        <td><?= $order['fullname'] ?></td>
+                                                        <td><?= $order['phone_number'] ?></td>
+                                                        <td><?= $order['Payment'] ?></td>
                                                         <td><?= number_format((float)$order['total_money'], 0, ',', '.') ?>đ</td>
-                                                        <td><?= htmlspecialchars($order['note']) ?></td>
-                                                        <td><?= htmlspecialchars($order['oders_date']) ?></td>
+                                                        <td><?= $order['note'] ?></td>
+                                                        <td><?= $order['status'] ?></td>
+                                                        <td><?= $order['oders_date'] ?></td>
                                                         <td>
                                                             <a href="?action=orderdetail&odersid=<?= htmlspecialchars($order['id']) ?>"> <i class="ri-eye-line"></i></a>
                                                         </td>

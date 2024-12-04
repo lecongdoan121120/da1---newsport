@@ -51,7 +51,7 @@
                                                                 </div>
                                                             </div>
 
-                                                            <div class="row align-items-center">
+                                                            <div style="margin-top: 20px;" class="row align-items-center">
                                                                 <label class="col-lg-2 col-md-3 col-form-label form-label-title">Phân quyền</label>
                                                                 <div class="col-md-9 col-lg-10">
                                                                     <select name="role" class="form-control">
@@ -60,8 +60,8 @@
                                                                     </select>
                                                                 </div>
                                                             </div>
-                                                            <input type="hidden" name="id" value="1"> <!-- ID người dùng -->
-                                                            <button type="submit">Thêm</button>
+                                                            <input type="hidden" name="id" value="1"> 
+                                                            <button type="submit" style="background-color: aquamarine;margin-top:15px">Thêm</button>
                                                         </div>
                                                     </form>
                                                 </div>
@@ -73,12 +73,6 @@
                         </div>
                     </div>
                 </div>
-                <!-- New User End -->
-
-                <!-- footer start -->
-
-                <!-- footer end -->
             </div>
-            <!-- Page Sidebar End -->
         </div>
     </div>

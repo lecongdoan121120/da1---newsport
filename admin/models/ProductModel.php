@@ -17,8 +17,8 @@ class ProductModel
     }
     public function add($data)
     {
-        $sql = "INSERT INTO product (category_id, title, price, discount, thumbnail, description, created_at, status) 
-            VALUES (:category_id, :title, :price, :discount, :thumbnail, :description, :created_at, :status)";
+        $sql = "INSERT INTO product (category_id, title, price, discount, thumbnail, description, created_at, status , stock) 
+            VALUES (:category_id, :title, :price, :discount, :thumbnail, :description, :created_at, :status , :stock)";
         $stmt = $this->conn->prepare($sql);
         $stmt->execute($data);
     }

@@ -27,7 +27,7 @@
                                     <div class="selector-actions">
                                         <div class="wrap-addcart clearfix">
                                             <div class="row-flex">
-                                                <?php if ($products['stock'] > 0): ?>
+                                                <?php if ($products['stock'] > 0 && $products['status'] == 'Đang kinh doanh'): ?>
                                                     <form action="index.php?action=addToCart" method="POST">
                                                         <input type="hidden" name="id" value="<?php echo $products['id'] ?>">
                                                         <input type="hidden" name="title" value="<?php echo $products['title'] ?>">
@@ -126,8 +126,7 @@
                                         <h5>Viết bình luận :</h5>
                                     </div>
                                     <div class="form-content">
-
-                                        <input type="hidden" name="id_product" value="<?= $id_product ?>">
+                                        <input type="hidden" name="id_product" value="<?= $products['id'] ?>">
                                         <label class="label" for="content_comment">Đánh giá</label>
                                         <textarea id="comment" name="content_comment" rows="4" placeholder="Write your comment here" tabindex="2" aria-required="true" required></textarea>
                                     </div>

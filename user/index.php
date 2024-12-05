@@ -59,7 +59,7 @@ switch ($action) {
     $OrderController->listorder();
     break;
   case 'odersdetail':
-    $OrderController->showOderdetail($_GET['odersid']);
+    $OrderController->showOrderDetail($_GET['odersid']);
     break;
   case 'contact' :
     $ProdutController->contact();
